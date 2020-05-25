@@ -1,0 +1,147 @@
+---
+---
+$handheld: 786px;
+$desktop: 1440px;
+@mixin tablet {
+    @media (min-width: #{$handheld}) {
+        @content;
+    }
+ }
+ @mixin pc {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+ }
+body{
+    background-image: url(../img/BG_signup_mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    @include tablet(){
+        background-image: url(../img/BG_signup_tablet.jpg);
+    }
+    @include pc(){
+        background-image: url(../img/BG_signup_desktop.jpg);
+
+    }
+}
+.sign_up{
+    background: -webkit-gradient(linear, left top, right top, from(#AB47BC), to(#7B1FA2));
+    background: -o-linear-gradient(left, #AB47BC 0%, #7B1FA2 100%);
+    background: linear-gradient(90deg, #AB47BC 0%, #7B1FA2 100%);
+    -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 32px;
+    padding-bottom: 37px;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-transform: translateY(110px);
+        -ms-transform: translateY(110px);
+            transform: translateY(110px);
+    @include tablet(){
+        max-width: 314px;
+    }
+    @include pc(){
+        max-width: 324px;
+    }
+    .sign_up_header{
+        font-size: 20px;
+        line-height: 23px;
+        color: #FFFFFF;
+        margin-bottom: 36px;
+    }
+    .sign_up_soc{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        width: 124px;
+    }
+}
+.mail_login{
+    background: #FFFFFF;
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 142px;
+    padding-bottom: 36px;
+    margin: 0 auto;
+    max-width: 400px;
+    margin-bottom: 66px;
+    @include tablet(){
+        max-width: 353px;
+        margin-bottom: 74px;
+    }
+    @include pc(){
+        max-width: 365px;
+    }
+    .mail_login_header{
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.87);
+        margin-bottom: 36px;
+    }
+    form{
+        height: 241px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        width: 85%;
+
+        div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            input{
+                border: none;
+                border-bottom: solid 1px #D2D2D2;
+                margin-left: 15px;
+                width: 100%;
+            }
+        }
+        button{
+            color: #9C27B0;
+            background-color: transparent;
+            border: none;
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}
