@@ -56,6 +56,9 @@ $screen-lg-min: 1440px;
 }
 .google{
     background-image: url(../icon/google-plus-square-brands.svg);
+    &:hover {
+        background-image: url(../icon/../icon/google-plus-square-brands_color.svg);    
+    }
 }
 .instagram{
     background-image: url(../icon/instagram-square-brands.svg);
@@ -235,6 +238,7 @@ form > div {
     max-width: 1140px;
     bottom: 27px;
     @include lg(){
+        margin-bottom: 33px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
