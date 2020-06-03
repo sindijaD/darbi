@@ -39,7 +39,7 @@ if ( rating <= 5 ){
     } else if (rating == 10){
         document.write(vertejums + 'izcili'+success);
     } else {
-        document.write('nav ievadīts rezultāts'+'<div class="ico_fail"></div>');        
+        document.write('nav ievadīts pareiz rezultāts'+'<div class="ico_fail"></div>');        
     }
 }
 
