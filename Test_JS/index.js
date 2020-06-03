@@ -39,7 +39,7 @@ if ( rating <= 5 ){
     } else if (rating == 10){
         document.write(vertejums + 'izcili'+success);
     } else {
-        
+        inputAlert();        
     }
 }
 
