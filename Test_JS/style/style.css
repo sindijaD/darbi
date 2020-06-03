@@ -1,0 +1,37 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    text-align: left;
+    background-color:  #bdbdbd;
+}
+.fail{
+    color: #ff0000;
+}
+.success{
+    color: #008000;
+}
+.ico_fail{
+    display: block;
+    background-image: url(../ico/user-faill.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-self: center;
+    width: 60px;
+    height: 60px;
+}
+.ico_success{
+    display: block;
+    background-image: url(../ico/user-graduate.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-self: center;
+    width: 60px;
+    height: 60px;
+}
