@@ -7,13 +7,15 @@ var vertejums = 'Balles:'+ rating +'- ';
 function  ievade(){
     var rating = prompt("ievadiet vērtējumu", "");
 }
-function inputAlert(){
-    if (rating > 10){
-        alert ('ievadīts nepareiz skaitlis');
-    }
-} 
 
-inputAlert();
+switch (vertejums){
+    case " > 10 ": alert ('ievadīts nepareiz skaitlis');
+    case '== null': document.write('īevade atcelta');
+    default: break;
+
+}
+
+
 
 if ( rating <= 5 ){
     if ( rating == 1){
