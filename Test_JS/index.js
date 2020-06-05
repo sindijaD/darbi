@@ -1,4 +1,3 @@
-
 var fail = '<p class="fail">Eksāmens nav nokārtots!!!</p>'+'<div class="ico_fail"></div>';
 var success ='<p class="success">Eksāmens nokārtots.</p>'+'<div class="ico_success"></div>';
 var rating = prompt("ievadiet vērtējumu", "");
@@ -7,16 +6,9 @@ var vertejums = 'Balles:'+ rating +'- ';
 function  ievade(){
     var rating = prompt("ievadiet vērtējumu", "");
 }
-
-switch (vertejums){
-    case " > 10 ": alert ('ievadīts nepareiz skaitlis');
-    case '== null': document.write('īevade atcelta');
-    default: break;
-
+if(rating == null){
+    document.write('ievade atcelta');
 }
-
-
-
 if ( rating <= 5 ){
     if ( rating == 1){
         document.write(vertejums + 'ļoti ļoti vāji'+ fail);
@@ -41,8 +33,6 @@ if ( rating <= 5 ){
     } else if (rating == 10){
         document.write(vertejums + 'izcili'+success);
     } else {
-        document.write('nav ievadīts pareiz rezultāts'+'<div class="ico_fail"></div>');        
+        document.write('nav ievadīts pareiz skaitlis'+'<div class="ico_fail"></div>');        
     }
 }
-
-
