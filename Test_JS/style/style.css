@@ -45,7 +45,7 @@ input{
     height: 40px;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 20%;
+    opacity: 10%;
 }
 .emoji1{
     background-image: url(../ico/score1.svg);

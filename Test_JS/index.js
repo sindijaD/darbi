@@ -34,7 +34,7 @@ function rating2(rating){
         if(rating == rez){
             loc.style.opacity = "100%";
         }else{
-            loc.style.opacity = "20%";
+            loc.style.opacity = "10%";
         }
     };
     switch(rating){
