@@ -24,10 +24,11 @@ footer p{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 10px 0 10px;
     height:100%;
 }
-.inputs input{
-    margin: 20px 5px 20px 5px;
+.inputs input, select{
+    margin: 20px 0 20px 0;
 }
 .prodList{
     display: flex;
@@ -45,6 +46,9 @@ footer p{
     padding: 0 20px 0 20px;
     height: min-content;
     margin: 5px auto 0 auto;
+}
+.btn :hover{
+    border: none;
 }
 .bnt :hover{
     box-shadow: 2px 2px 2px black;

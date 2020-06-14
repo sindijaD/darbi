@@ -14,6 +14,7 @@ var produkti =[
 ];
 
 var loc = document.getElementById("list"),
+    selectLoc = document.querySelector("#deleteli"),
     btn = document.getElementById('btn');
   var  dispAmount = produkti.length;
   function clearList(){
@@ -36,10 +37,23 @@ var loc = document.getElementById("list"),
         ListOutput();
         document.getElementById("addList").value = "";//clear input value
     }
+  } function delFunction(del){
+      delete produkti[del];
+
   }
 
+
+  function delfunction(){///delete function
+        var delValue = selectLoc.options[selectLoc.selectedIndex].value;//take value from selection
+        delFunction(delValue);
+        console.log(produkti[delValue]);
+  }
+
+
+
+
 function ListOutput(){
-    var dispAmount = produkti.length;
+    var dispAmount = produkti.length;//getting values for double preventer
     dispAmount = document.getElementById('dispAmount').value;
 /*prevent user from entering greater value then array holds and
 leaving dispAmount without value*/
@@ -49,11 +63,11 @@ leaving dispAmount without value*/
         alert('You entered value greater then list holds');
         dispAmount = produkti.length;
     };
-    /*creating <ul>*/
     var prevent = document.querySelector('.prodList'),
+        /*creating <ul>*/
         newUl = document.createElement('ul'),
         sectionLoc = document.querySelector('list'); 
-    loc.appendChild(newUl, sectionLoc).classList.add("prodList")
+    loc.appendChild(newUl, sectionLoc).classList.add("prodList");
     /*adding <li> and its content to <ul> and */
     for (i = 0; i < dispAmount; i++) {
         var newLi = document.createElement('li');
@@ -61,10 +75,15 @@ leaving dispAmount without value*/
         newLi.appendChild(Content);
         var currentLi = document.querySelector('list'); 
         const ulLoc = document.querySelector(".prodList");
-        ulLoc.appendChild(newLi, currentLi).classList.add('item'+i); 
-
-        /*to do element delete function*/
-    };
+        ulLoc.appendChild(newLi, currentLi).classList.add('item'+i);
+        /*creating  delete menu*/
+        var deloptions = document.createElement('option');
+        var delOpContent = document.createTextNode( produkti[+i]);
+        deloptions.appendChild(delOpContent);
+        selectLoc.appendChild(deloptions, selectLoc).setAttribute("value", ""+ +i +"");/*give value for delete function*/
+    }
+    
+    
     if(dispAmount > produkti.length || !dispAmount == undefined ){
         dispAmount = produkti.length;
     }
@@ -72,24 +91,9 @@ leaving dispAmount without value*/
         btn.innerText = 'Refresh list';
     }else{
         loc.innerHTML = null;
+        selectLoc.innerHTML = null;
         btn.innerText = 'Show list';
         ListOutput();
         document.getElementById("dispAmount").value = "";//clear input value
-
     }
 };
-/*
-
-
-    
-console.log(dispAmount);
-    if(dispAmount > produkti.length ){//prevent user from entering larger value then list hold
-        dispAmount = produkti.length;
-    }else{
-        dispAmount = document.getElementById('dispAmount').value;
-    }
-
-
-
-
-*/
