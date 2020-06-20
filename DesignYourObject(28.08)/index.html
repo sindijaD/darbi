@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title >austris</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Designe your cupboard </h1>
+    </header>
+    <main>
+        <button onclick="addHight()" class="addHight btn">Higher</button>
+        <button onclick="ReduceHight()" class="reduceHight btn">ReduceHigher</button>
+        <section class="middle">
+            <div class="LsideBtn">
+                <button onclick="addWidth()" class="width btn">Hidth</button>
+                <button onclick="reduce()" class="reduced btn">Reduce width</button>
+            </div>
+            <div class="table"></div>
+            <div class="selection">
+                <div class="optionContainer">
+                    <div onclick="submitD()" class="texture1"></div>
+                    <div onclick="submitG()" class="texture2"></div>
+                    <div onclick="submitY()" class="texture3"></div>
+                </div>
+            </div>           
+        </section>
+       <select class="drawerSelect" onchange="addDrawers()" id="addDrawers" placeholder="Add drawers">
+            <option value="0">without</option>
+            <option value="1">with 1</option>
+            <option value="2">with 2</option>
+            <option value="3">with 3</option>
+        </select>
+        <div class="stats">
+            <p>Your orders dimensions and addons.</p>
+            <p class="S_with"></p>
+            <p class="S_height"></p>
+            <p class="S_texture"></p>
+            <p class="S_drawerCount"></p>
+        </div>
+    </main>
+    <footer>Austris Daugulis &copy</footer>
+    <script src="index.js"></script>
+</body>
+</html>

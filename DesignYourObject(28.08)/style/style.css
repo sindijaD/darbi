@@ -1,0 +1,80 @@
+.btn{
+    height: 40px;
+    background-color: #8d8f8f;
+    text-align: center;
+    padding: 0 2px 0 2px;
+    border-right: none;
+    border-left: none;
+    margin: 5px;
+
+}
+.table{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #913333;
+    width: 60px;
+    height: 120px;
+    border: 2px ridge black;
+}
+.drawers{
+    width: 100%;
+    background-color: red;
+    height: 15px;
+    border: 1px ridge black;
+
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+.LsideBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.middle{
+    display: flex;
+    flex-direction: row;
+}
+footer, header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.drawerSelect{
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+.selection{
+    width: 120px;
+    height: 120px;
+    background-color: #727272;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 5px;
+}
+.optionContainer div{
+    width: 120px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selection .optionContainer{
+    display: none;
+}
+.selection:hover > .optionContainer{
+    display: block;
+    position: absolute;
+}
+
+.texture1{
+    background-image: url(../ico/texture1.jpeg);
+}.texture2{
+    background-image: url(../ico/texture2.jpg);
+}.texture3{
+    background-image: url(../ico/texture3.jpg);
+}
