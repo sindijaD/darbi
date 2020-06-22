@@ -6,20 +6,30 @@
     border-right: none;
     border-left: none;
     margin: 5px;
+    box-shadow: 0px 0px 15px 3px #000000bf;
 
 }
 .table{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: #913333;
-    width: 60px;
-    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
     border: 2px ridge black;
+}
+.doors{
+    background-image: url(../ico/door.png);
+    background-repeat: space;
+    background-size: contain;
+    align-self: flex-start;
+    width: 100%;
+    height: 100%;
 }
 .drawers{
     width: 100%;
-    background-color: red;
+    background-image: url(../ico/drawer.svg);
+    background-size: contain;
+    background-repeat: space;
     height: 15px;
     border: 1px ridge black;
 
@@ -51,10 +61,12 @@ footer, header{
 .selection{
     width: 120px;
     height: 120px;
-    background-color: #727272;
     background-repeat: no-repeat;
+    border-radius: 10px;
     background-size: cover;
     margin-left: 5px;
+    box-shadow: 0px 0px 15px 3px #000000bf;
+
 }
 .optionContainer div{
     width: 120px;
