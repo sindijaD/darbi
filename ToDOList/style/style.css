@@ -1,0 +1,91 @@
+@import url(restart.css);
+@import url(bootstrap.css);
+.done_t {
+  -webkit-text-decoration: line-through var(--danger);
+          text-decoration: line-through var(--danger);
+}
+
+.ico {
+  width: 30px;
+  height: 30px;
+}
+
+.del {
+  background-image: url(../ico/trash-alt-solid.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+}
+
+.done {
+  background-image: url(../ico/clipboard-check-solid.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+}
+
+/*elements*/
+.add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.add select {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.add input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+header, footer, main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+table {
+  width: 100%;
+  border: #000000 2px ridge;
+}
+
+table thead {
+  background-color: var(--dark);
+  color: #ffffff;
+}
+
+table tbody {
+  background-color: var(--gray);
+}
+
+tr, th {
+  text-align: center;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
