@@ -1,12 +1,13 @@
 @import url(restart.css);
 @import url(bootstrap.css);
 
+
 @mixin background {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
-@mixin flexinline {
+@mixin flexInline {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,39 +31,60 @@
 }
 /*elements*/
 
-.add{
-    @include flexinline();
-    justify-content:space-between;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    select{
-        max-width: max-content;
-    }
-    input{
-        margin-left: 10px;
-        margin-right: 10px;
+body{
+    main{
+        section{
+            h2{
+                text-align: center;
+            }
+            .add{
+                @include flexInline();
+                justify-content:space-between;
+                padding-bottom: 10px;
+                padding-top: 10px;
+               button{
+                   white-space: nowrap;
+               }
+                select{
+                    max-width: max-content;
+                }
+                input{
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+            .output{
+                @include flexInline();
+                justify-content: center;
+                .list-group{
+                   list-style: decimal;
+                   list-style-position: inside;
+                   li{
+                       display: list-item;
+                       div{
+                        display: inline-block;
+                    }
+                   }
+                  
+                }     
+            }
+        }
     }
 }
+
+
 header, footer,main{
     display: flex;
     justify-content: center;
 }
-table{
-    width: 100%;
-    border: #000000 2px ridge;
-    thead{
-        background-color: var(--dark);
-        color: #ffffff;
-    }
-    tbody{
-        background-color: var(--gray);
-    }
+h3{
+    font-size: 20px;
+    margin-right: 10px;
 }
-tr, th{
-    text-align: center;
-    vertical-align: middle;
-    padding-right: 10px;
+.input{
+    border: none;
+    background-color: transparent;
+    width: 100px;
 }
-h2{
-    text-align: center;
-}
+
+

@@ -1,36 +1,12 @@
-/*$(function(){
-    $('.btn-success').css({color:'red'});
-
-});
-
-const math = (x, y) => x + y;
-
-$('#input').onchange(function(){
-    $('#input').value;
-});
-$('.container-sm').append('sveicināts'+ ievade);
-
-outputLoc.append(
-        '<tr>'+
-        '<th>'+toDoList.item0.type+'</th>'+
-        '<th>'+toDoList.item0.task+'</th>'+
-        '<th>'+toDoList.item0.taskCreated+'<br>'+toDoList.item0.time+'</th>'+
-        '<th><div class="ico del"></div></th>'+
-        '</tr>'
-    );
-                console.log(outputContent)
-
-
-izvade jānotiek no object
-*/
-
 var toDoList = {};
+$('.table').hide();
+
 
 const addBtn = $('#addtask'),
     taskInput =  $('#task'),
     selectionLoc = $('#taskType'),
     done = $('.done'),
-    outputLoc =  $('tbody');
+    outputLoc =  $('.list-group');
 
 function refreshOutput(){   
     var count = Object.keys(toDoList).length,
@@ -38,21 +14,14 @@ function refreshOutput(){
         doneClass = '',
         i = 1;        
         while (i <= count){
-            if (toDoList['item'+i].done === true){
-                doneClass = 'class="done_t"'
-                console.log(doneClass);
+           if (toDoList['item'+i].done === true){
+                doneClass = 'done_t'
             }else{
                 doneClass = '';
-            }   
+            }
             /*Determine if task is accomplished.*/
-            outputContent +='<tr>'+
-            '<th>'+[i]+'</th>'+
-            '<th>'+toDoList["item"+i].type+'</th>'+
-            '<th '+doneClass+'>'+toDoList["item"+i].task+'</th>'+
-            '<th>'+toDoList["item"+i].taskCreated+'<br>'+toDoList["item"+i].time+'</th>'+
-            '<th onclick="clickEvent('+i+')" ><div class="done ico"></div></th>'+            
-            '<th><div class="ico del"></div></th>'+
-            '</tr>';
+            outputContent +=
+            '<li class="list-group-item '+doneClass+'">'+toDoList["item"+i].task+'</li>'
             i++;
             outputLoc.html(outputContent);
         };
@@ -85,16 +54,79 @@ addBtn.click(function(){
         }
          /*changing object keys names, to prevent overwriting*/
 
-        console.log(toDoList);
     refreshOutput();
  });
 
+ function editList(){
+    var count = Object.keys(toDoList).length,
+        outputContent = '',
+        i = 1;
+    while (i <= count){
+        if (toDoList['item'+i].done === true ){
+            doneClass = 'done_t'
+        }else{
+            doneClass = '';
+        } 
+        /*Determine if task is accomplished.*/
+        outputContent +=
+        '<tr>'+
+        '<th scope="row">'+ i +'</th>'+
+        '<td>'+toDoList["item"+i].type+'</td>'+
+        '<td onclick="showRename('+i+')" class="edit'+i+' '+doneClass+'">'+toDoList["item"+i].task+'</td>'+
+        '<td>'+toDoList["item"+i].taskCreated+' '+toDoList["item"+i].time+'</td>'+
+        '<td><div onclick="clickEvent('+i+')" class="done ico"></div></td>'+
+        '<td><div onclick="deleteClick('+i+')" class="ico del"></div></td>'+
+        '</tr>'
+        i++;
+        $('#editOutputLoc').html(outputContent);
+    };
+ };
  function clickEvent(a){
     toDoList['item'+a].done = true;
-    console.log('task works');
-    refreshOutput();
-    console.log(toDoList);
+    editList();  
  };
+
+ /*finishes task*/
+
+ function deleteClick(a){
+    //delete toDoList['item'+a];   //only can delete last task
+    
+ };
+ /*delete task*/
+ function rename(event, a) {
+    var x = event.which;
+    if(x == 13){
+        toDoList['item'+a].task = $('.editV'+a).val();
+        editList();  
+    };
+  }
+
+ function showRename(a){
+     $('<td><input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text"></td>').replaceAll( ".edit"+a );
+     console.log('works');
+ }
+ /*Rename task*/
+ $('#editList').click(function() {
+    $('.nav-link').removeClass('active');
+    $('#editList').addClass('active');
+    $('select, input, #addtask, .list-group').hide();
+    $('.table').show();
+    editList();  
+  });
+$('#create_list').click(function () {
+    $('.nav-link').removeClass('active');
+    $('#create_list').addClass('active');
+    $('select, input, #addtask, .list-group').show();
+    $('.table').hide();
+    refreshOutput();
+}); 
+console.log(toDoList);
+
+
+
+
+
+
  /*
     toDoList['item'+count] = toDoList['item0'];
     8 julijs  11.30 

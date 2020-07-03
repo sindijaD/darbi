@@ -27,7 +27,11 @@
 }
 
 /*elements*/
-.add {
+body main section h2 {
+  text-align: center;
+}
+
+body main section .add {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,15 +49,48 @@
   padding-top: 10px;
 }
 
-.add select {
+body main section .add button {
+  white-space: nowrap;
+}
+
+body main section .add select {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
 }
 
-.add input {
+body main section .add input {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+body main section .output {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main section .output .list-group {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+body main section .output .list-group li {
+  display: list-item;
+}
+
+body main section .output .list-group li div {
+  display: inline-block;
 }
 
 header, footer, main {
@@ -65,27 +102,14 @@ header, footer, main {
           justify-content: center;
 }
 
-table {
-  width: 100%;
-  border: #000000 2px ridge;
+h3 {
+  font-size: 20px;
+  margin-right: 10px;
 }
 
-table thead {
-  background-color: var(--dark);
-  color: #ffffff;
-}
-
-table tbody {
-  background-color: var(--gray);
-}
-
-tr, th {
-  text-align: center;
-  vertical-align: middle;
-  padding-right: 10px;
-}
-
-h2 {
-  text-align: center;
+.input {
+  border: none;
+  background-color: transparent;
+  width: 100px;
 }
 /*# sourceMappingURL=style.css.map */

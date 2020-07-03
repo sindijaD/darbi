@@ -21,33 +21,43 @@
     <main>
         <section>
             <h2>Austris list</h2>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <button id="create_list" class="nav-link active">Create list</button>
+                </li>
+                <li class="nav-item">
+                    <button id="editList" class="nav-link">Edit lis</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">Download list</button>
+                </li>
+              </ul>
             <div class="add">
                 <select class="form-control" id="taskType">
                     <option>EveryDay</option>
                     <option>Do once</option>
                 </select>
-                <input class="form-control" id="task" type="text" placeholder="Task description">
-                <button id="addtask" class="btn btn-dark">Add</button>              
+                <input class="form-control" id="task" type="text"  placeholder="Task description">
+                <button id="addtask" class="btn btn-dark">Add Task</button>              
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nr</th>
-                        <th>Type</th>
-                        <th>Task</th>
-                        <th>Created</th>
-                        <th>Finished</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                 
-                    
-                </tbody>
-            </table>
-            <div>task date, photo utt</div>
-            <div>status</div>
-        </section>
+            <div class="output">
+                <div class="pages">
+                <ul class="list-group"></ul>
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Task</th>
+                        <th scope="col">Task created</th>
+                        <th scope="col">Done</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody id="editOutputLoc"></tbody>
+                </table>
+            </div>
+        </section >
     </main>
     <footer>Austris Daugulis &copy</footer>
     <script src="js/jquery-3.5.1.js.js"></script>
