@@ -19,8 +19,7 @@
         <h1>TO DO LIST</h1>
     </header>
     <main>
-        <section>
-            <h2>Austris list</h2>
+        <nav>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                   <button id="create_list" class="nav-link active">Create list</button>
@@ -29,13 +28,22 @@
                     <button id="editList" class="nav-link">Edit lis</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link">Download list</button>
+                    <button id="DownPage" class="nav-link">Download list</button>
+                </li>
+                <li class="nav-item">
+                    <button id="AboutPage" class="nav-link">About</button>
                 </li>
               </ul>
+        </nav>
+        <section class="content">
             <div class="add">
                 <select class="form-control" id="taskType">
-                    <option>EveryDay</option>
                     <option>Do once</option>
+                    <option>EveryDay</option>
+                    <option>Once a week</option>
+                    <option>Once a month</option>
+                    <option>Once a Year</option>
+                    <option>Do do this ever</option>
                 </select>
                 <input class="form-control" id="task" type="text"  placeholder="Task description">
                 <button id="addtask" class="btn btn-dark">Add Task</button>              
@@ -43,20 +51,35 @@
             <div class="output">
                 <div class="pages">
                 <ul class="list-group"></ul>
-                <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Task</th>
-                        <th scope="col">Task created</th>
-                        <th scope="col">Done</th>
-                        <th scope="col">Delete</th>
-                      </tr>
-                    </thead>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th class="edit134" scope="col">Type</th>
+                                <th class="px100" scope="col">Task</th>
+                                <th scope="col">Task created</th>
+                                <th scope="col">Done</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
                     <tbody id="editOutputLoc"></tbody>
                 </table>
+                </div>
             </div>
+            <section id="downPage" style="display: none;">
+                <h2>Download page</h2>
+            </section>
+            <section id="aboutPage" style="display: none;">
+                <h2>Made by</h2>
+                <div class="card" style="width: 18rem;">
+                    <img src="ico/profile.JPG" class="card-img-top" alt="austrisprofile">
+                    <div class="card-body">
+                      <h5 class="card-title">Austris Daugulis</h5>
+                      <p class="card-text">Junior web developer</p>
+                      <a href="https://www.linkedin.com/in/austris-daugulis-2646181b1/" class="btn btn-primary">linkedin</a>
+                    </div>
+                  </div>
+            </section>
         </section >
     </main>
     <footer>Austris Daugulis &copy</footer>

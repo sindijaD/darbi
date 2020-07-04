@@ -26,45 +26,41 @@
   margin: auto;
 }
 
-/*elements*/
-body main section h2 {
-  text-align: center;
-}
-
-body main section .add {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-body main section .add button {
+.btn {
   white-space: nowrap;
 }
 
-body main section .add select {
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
+button:focus {
+  outline: none;
+  border: 5px auto;
 }
 
-body main section .add input {
-  margin-left: 10px;
-  margin-right: 10px;
+/*elements*/
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-body main section .output {
+body main nav {
+  max-width: 768px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  body main nav {
+    width: 100%;
+  }
+}
+
+body main nav .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,17 +76,62 @@ body main section .output {
           justify-content: center;
 }
 
-body main section .output .list-group {
-  list-style: decimal;
-  list-style-position: inside;
+body main .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  width: 100%;
+  max-width: 768px;
+  padding: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-body main section .output .list-group li {
-  display: list-item;
+@media (max-width: 768px) {
+  body main .content {
+    width: 100%;
+  }
 }
 
-body main section .output .list-group li div {
-  display: inline-block;
+body main .content .output {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+body main .content .add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+body main .content .add #task {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 header, footer, main {
@@ -111,5 +152,58 @@ h3 {
   border: none;
   background-color: transparent;
   width: 100px;
+}
+
+.px100 {
+  width: 124px;
+}
+
+td, th {
+  white-space: nowrap;
+}
+
+td .form-control {
+  margin-top: -4;
+  margin-bottom: -4;
+}
+
+.edit134 {
+  width: 134px;
+  background-color: red;
+}
+
+.list-group li {
+  display: list-item;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.table {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@media (max-width: 768px) {
+  .table {
+    width: 100%;
+  }
+}
+
+#editOutputLoc tr .td {
+  width: 134px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+#editOutputLoc tr .td td {
+  padding: 0;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+#editOutputLoc tr .td select {
+  margin: 0;
+  padding-left: 0;
 }
 /*# sourceMappingURL=style.css.map */

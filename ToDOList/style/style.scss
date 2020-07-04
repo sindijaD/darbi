@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}@mixin flexColum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .done_t{
     text-decoration: line-through var(--danger);
@@ -29,44 +33,57 @@
     @include background();
     margin: auto;
 }
+.btn{
+    white-space: nowrap;
+}
+button:focus {
+    outline: none;
+    border: 5px auto;
+}
 /*elements*/
 
 body{
     main{
-        section{
-            h2{
-                text-align: center;
+        @include flexColum();
+        nav{
+            max-width: 768px;
+            width: 100%;
+            @media (max-width: 768px) {
+                width: 100%;
+             };
+            .nav{
+                @include flexInline();
+                justify-content: center;
             }
+        }
+        .content{
+            @include flexColum();
+            justify-content: center;
+            border: 1px solid rgb(222, 226, 230);
+            border-top: none;
+            width: 100%;
+            max-width: 768px;
+            padding: 20px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            @media (max-width: 768px) {
+                width: 100%;
+            };
+            .output{
+                width: max-content;
+            }
+
+         
+            
             .add{
                 @include flexInline();
-                justify-content:space-between;
-                padding-bottom: 10px;
-                padding-top: 10px;
-               button{
-                   white-space: nowrap;
-               }
-                select{
-                    max-width: max-content;
-                }
-                input{
+                width: max-content;
+                max-width: 400px;
+                margin-bottom: 20px;
+                #task{
                     margin-left: 10px;
                     margin-right: 10px;
                 }
-            }
-            .output{
-                @include flexInline();
-                justify-content: center;
-                .list-group{
-                   list-style: decimal;
-                   list-style-position: inside;
-                   li{
-                       display: list-item;
-                       div{
-                        display: inline-block;
-                    }
-                   }
-                  
-                }     
             }
         }
     }
@@ -86,5 +103,44 @@ h3{
     background-color: transparent;
     width: 100px;
 }
+.px100{
+    width: 124px;
+}
 
+td, th{
+    white-space: nowrap;
+}
+td .form-control{
+    margin-top: -4;
+    margin-bottom: -4;
+}
+.edit134{
+    width: 134px;
+    background-color: red;
+}
+.list-group li{
+    display: list-item;
+    list-style-type: decimal;
+    list-style-position: inside;                        
+}
+.table{
+    width: max-content;
+    @media (max-width: 768px) {
+        width: 100%;
+     };
+}
+#editOutputLoc tr .td {
+    width: 134px;
+    padding: 0;
+    vertical-align: middle;
+    td{
+        padding: 0;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+    select{
+        margin: 0;
+        padding-left: 0;
+    }
+}
 

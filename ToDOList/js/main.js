@@ -26,7 +26,8 @@ function refreshOutput(){
             outputLoc.html(outputContent);
         };
 };
-addBtn.click(function(){
+
+function addValueToOb(){
     var day = new Date().getDate(),
         month = new Date().getUTCMonth(),
         year = new Date().getUTCFullYear(),
@@ -53,10 +54,21 @@ addBtn.click(function(){
             delete toDoList['item0'];
         }
          /*changing object keys names, to prevent overwriting*/
-
     refreshOutput();
- });
+};
 
+addBtn.click(function(){
+    addValueToOb();
+ });
+ /*add value to object by pressing "add task" btn*/
+ $(document).ready(function(){
+    $("#task").keydown(function(event){
+        if(event.which == 13){//13 enter key
+            addValueToOb();
+        }
+    });
+  });
+ /*add value to object by pressing "enter" while input is active*/
  function editList(){
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -71,7 +83,7 @@ addBtn.click(function(){
         outputContent +=
         '<tr>'+
         '<th scope="row">'+ i +'</th>'+
-        '<td>'+toDoList["item"+i].type+'</td>'+
+        '<td onclick="showSelect('+i+')" class="type'+i+' td" >'+toDoList["item"+i].type+'</td>'+
         '<td onclick="showRename('+i+')" class="edit'+i+' '+doneClass+'">'+toDoList["item"+i].task+'</td>'+
         '<td>'+toDoList["item"+i].taskCreated+' '+toDoList["item"+i].time+'</td>'+
         '<td><div onclick="clickEvent('+i+')" class="done ico"></div></td>'+
@@ -82,7 +94,11 @@ addBtn.click(function(){
     };
  };
  function clickEvent(a){
-    toDoList['item'+a].done = true;
+     if( toDoList['item'+a].done === false){
+        toDoList['item'+a].done = true;
+     }else{
+        toDoList['item'+a].done = false;
+     }
     editList();  
  };
 
@@ -90,37 +106,72 @@ addBtn.click(function(){
 
  function deleteClick(a){
     //delete toDoList['item'+a];   //only can delete last task
-    
  };
+
+
  /*delete task*/
  function rename(event, a) {
     var x = event.which;
-    if(x == 13){
+    if(x == 13 ){
         toDoList['item'+a].task = $('.editV'+a).val();
-        editList();  
+        editList(); 
     };
   }
 
  function showRename(a){
      $('<td><input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text"></td>').replaceAll( ".edit"+a );
-     console.log('works');
  }
  /*Rename task*/
  $('#editList').click(function() {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
-    $('select, input, #addtask, .list-group').hide();
+    $(' #downPage, .list-group, .add, #aboutPage').hide();
     $('.table').show();
     editList();  
   });
 $('#create_list').click(function () {
     $('.nav-link').removeClass('active');
     $('#create_list').addClass('active');
-    $('select, input, #addtask, .list-group').show();
-    $('.table').hide();
+    $('#downPage, .table, #aboutPage').hide();
+    $('.list-group, .add').show();
     refreshOutput();
-}); 
+});
+$('#DownPage').click(function(){
+    $('.nav-link').removeClass('active');
+    $('#DownPage').addClass('active');
+    $('.table, .list-group, #aboutPage, .table, .add ').hide();
+    $('#downPage').show();
+    refreshOutput();
+});
+$('#AboutPage').click(function(){
+    $('.nav-link').removeClass('active');
+    $('#AboutPage').addClass('active');
+    $('.table, .list-group, #downPage, .table, .add').hide();
+    $('#aboutPage').show();
+    refreshOutput();
+});
 console.log(toDoList);
+function showSelect(i){
+    var selector = $( '#taskType' ).clone();
+    $('.type'+i).html(selector);
+    /*clone selection from create list page*/
+    $('.type'+i+' .form-control').show();
+    $('.type'+i).prop("onclick", null).off("click");
+    /*preventing flickering */
+    $('.type'+i+' .form-control').attr("onchange", "changeVal("+i+")");
+}
+/*creating selection in Edit list*/
+function changeVal(i){
+    console.log('works');
+    toDoList['item'+i].type = $('.type'+i+' .form-control').val();
+    editList();  
+}
+/* changes value  in object and rewrites htm*/
+
+
+
+
+
 
 
 
@@ -128,6 +179,5 @@ console.log(toDoList);
 
 
  /*
-    toDoList['item'+count] = toDoList['item0'];
     8 julijs  11.30 
  */
