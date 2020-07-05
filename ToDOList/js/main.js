@@ -1,7 +1,14 @@
-var toDoList = {};
+if(localStorage.getItem('toDoList') == null){
+    var toDoList = {};
+}else{
+}
+//toDoList = localStorage.setItem('toDoList', toDoList);
+
+
+
+
+
 $('.table').hide();
-
-
 const addBtn = $('#addtask'),
     taskInput =  $('#task'),
     selectionLoc = $('#taskType'),
@@ -26,6 +33,7 @@ function refreshOutput(){
             outputLoc.html(outputContent);
         };
 };
+refreshOutput();
 
 function addValueToOb(){
     var day = new Date().getDate(),
@@ -35,7 +43,6 @@ function addValueToOb(){
         minutes = new Date().getUTCMinutes(),
         count = Object.keys(toDoList).length,
         count1 = Object.keys(toDoList).length+1;
-
         toDoList['item0'] = {
             type: selectionLoc.val(),
             task: taskInput.val(),
@@ -45,7 +52,6 @@ function addValueToOb(){
         };
         taskInput.val('');//clear input field
         /*creating object item*/
-
         if(count == 0 ){
             toDoList['item1'] = toDoList['item0'];
             delete toDoList['item0'];
@@ -53,7 +59,8 @@ function addValueToOb(){
             toDoList['item'+count1] = toDoList['item0'];
             delete toDoList['item0'];
         }
-         /*changing object keys names, to prevent overwriting*/
+        /*changing object keys names, to prevent overwriting*/
+        localStorage.setItem('toDoList', toDoList);
     refreshOutput();
 };
 
@@ -93,15 +100,17 @@ addBtn.click(function(){
         $('#editOutputLoc').html(outputContent);
     };
  };
+
+
  function clickEvent(a){
      if( toDoList['item'+a].done === false){
         toDoList['item'+a].done = true;
      }else{
         toDoList['item'+a].done = false;
+        toDoList.set
      }
     editList();  
  };
-
  /*finishes task*/
 
  function deleteClick(a){
@@ -117,7 +126,6 @@ addBtn.click(function(){
         editList(); 
     };
   }
-
  function showRename(a){
      $('<td><input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text"></td>').replaceAll( ".edit"+a );
  }
@@ -150,7 +158,6 @@ $('#AboutPage').click(function(){
     $('#aboutPage').show();
     refreshOutput();
 });
-console.log(toDoList);
 function showSelect(i){
     var selector = $( '#taskType' ).clone();
     $('.type'+i).html(selector);
@@ -162,19 +169,10 @@ function showSelect(i){
 }
 /*creating selection in Edit list*/
 function changeVal(i){
-    console.log('works');
     toDoList['item'+i].type = $('.type'+i+' .form-control').val();
     editList();  
 }
 /* changes value  in object and rewrites htm*/
-
-
-
-
-
-
-
-
 
 
 
