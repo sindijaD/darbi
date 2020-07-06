@@ -17,7 +17,7 @@
     align-items: center;
 }
 .done_t{
-    text-decoration: line-through var(--danger);
+    text-decoration: double line-through var(--danger) ;
 }
 .ico{
     width: 30px;
@@ -45,8 +45,12 @@ button:focus {
 body{
     main{
         @include flexColum();
+        width: 100%;
+        @media (min-width: 768px) {
+            width: 768px;
+            margin: 0 auto;
+         };
         nav{
-            max-width: 768px;
             width: 100%;
             @media (max-width: 768px) {
                 width: 100%;
@@ -62,15 +66,21 @@ body{
             border: 1px solid rgb(222, 226, 230);
             border-top: none;
             width: 100%;
-            max-width: 768px;
             padding: 20px;
             border-bottom-right-radius: 5px;
             border-bottom-left-radius: 5px;
-            @media (max-width: 768px) {
-                width: 100%;
-            };
             .output{
                 width: max-content;
+                @media (max-width: 768px) {
+                    width: 100%;
+                };
+                .pages{
+                    .list-group{
+                        width: max-content;
+                        margin: 0 auto;
+                    }
+                }
+
             }
             .add{
                 @include flexInline();
@@ -103,17 +113,13 @@ h3{
 .px100{
     width: 124px;
 }
-
-td, th{
-    white-space: nowrap;
-}
 td .form-control{
     margin-top: -4;
     margin-bottom: -4;
 }
 .edit134{
     width: 134px;
-    background-color: red;
+   
 }
 .list-group li{
     display: list-item;
@@ -124,7 +130,7 @@ td .form-control{
     width: max-content;
     @media (max-width: 768px) {
         width: 100%;
-     };
+     }
 }
 #editOutputLoc tr .td {
     width: 134px;
@@ -138,6 +144,40 @@ td .form-control{
     select{
         margin: 0;
         padding-left: 0;
+    }
+}
+
+tbody{
+    @media (max-width: 768px) {
+        @include flexInline();
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .taskItem{
+        width: min-content;
+        border: 1px solid rgb(222, 226, 230);
+        padding: 5px;
+        margin: 5px;
+        .taskMobile, .typeMobile{
+            text-align: right;
+            div, input, select{
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+        div{
+            white-space: nowrap;
+            @include flexInline();
+            line-height: 38px;
+        
+
+        }
+        .taskControls{
+            @include flexInline();
+            padding: 5px;
+        }
     }
 }
 

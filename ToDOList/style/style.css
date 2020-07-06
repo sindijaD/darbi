@@ -1,8 +1,8 @@
 @import url(restart.css);
 @import url(bootstrap.css);
 .done_t {
-  -webkit-text-decoration: line-through var(--danger);
-          text-decoration: line-through var(--danger);
+  -webkit-text-decoration: double line-through var(--danger);
+          text-decoration: double line-through var(--danger);
 }
 
 .ico {
@@ -47,10 +47,17 @@ body main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  body main {
+    width: 768px;
+    margin: 0 auto;
+  }
 }
 
 body main nav {
-  max-width: 768px;
   width: 100%;
 }
 
@@ -93,22 +100,28 @@ body main .content {
   border: 1px solid #dee2e6;
   border-top: none;
   width: 100%;
-  max-width: 768px;
   padding: 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-}
-
-@media (max-width: 768px) {
-  body main .content {
-    width: 100%;
-  }
 }
 
 body main .content .output {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+}
+
+@media (max-width: 768px) {
+  body main .content .output {
+    width: 100%;
+  }
+}
+
+body main .content .output .pages .list-group {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
 }
 
 body main .content .add {
@@ -158,10 +171,6 @@ h3 {
   width: 124px;
 }
 
-td, th {
-  white-space: nowrap;
-}
-
 td .form-control {
   margin-top: -4;
   margin-bottom: -4;
@@ -169,7 +178,6 @@ td .form-control {
 
 .edit134 {
   width: 134px;
-  background-color: red;
 }
 
 .list-group li {
@@ -205,5 +213,75 @@ td .form-control {
 #editOutputLoc tr .td select {
   margin: 0;
   padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  tbody {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+}
+
+tbody .taskItem {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  border: 1px solid #dee2e6;
+  padding: 5px;
+  margin: 5px;
+}
+
+tbody .taskItem .taskMobile, tbody .taskItem .typeMobile {
+  text-align: right;
+}
+
+tbody .taskItem .taskMobile div, tbody .taskItem .taskMobile input, tbody .taskItem .taskMobile select, tbody .taskItem .typeMobile div, tbody .taskItem .typeMobile input, tbody .taskItem .typeMobile select {
+  margin: 0 auto;
+  text-align: center;
+}
+
+tbody .taskItem div {
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 38px;
+}
+
+tbody .taskItem .taskControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
 }
 /*# sourceMappingURL=style.css.map */

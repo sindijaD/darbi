@@ -1,20 +1,16 @@
 if(localStorage.getItem('toDoList') == null){
+    localStorage.clear();
     var toDoList = {};
 }else{
+    toDoList = JSON.parse(localStorage.getItem('toDoList'));
 }
-//toDoList = localStorage.setItem('toDoList', toDoList);
-
-
-
-
-
+/*loading un converting string from local storage*/
 $('.table').hide();
 const addBtn = $('#addtask'),
     taskInput =  $('#task'),
     selectionLoc = $('#taskType'),
     done = $('.done'),
     outputLoc =  $('.list-group');
-
 function refreshOutput(){   
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -60,7 +56,7 @@ function addValueToOb(){
             delete toDoList['item0'];
         }
         /*changing object keys names, to prevent overwriting*/
-        localStorage.setItem('toDoList', toDoList);
+        localStorage.setItem('toDoList', JSON.stringify(toDoList));
     refreshOutput();
 };
 
@@ -76,6 +72,8 @@ addBtn.click(function(){
     });
   });
  /*add value to object by pressing "enter" while input is active*/
+
+
  function editList(){
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -87,7 +85,9 @@ addBtn.click(function(){
             doneClass = '';
         } 
         /*Determine if task is accomplished.*/
-        outputContent +=
+        if ($(window).width() > 768) {
+            $('thead').show();
+            outputContent +=
         '<tr>'+
         '<th scope="row">'+ i +'</th>'+
         '<td onclick="showSelect('+i+')" class="type'+i+' td" >'+toDoList["item"+i].type+'</td>'+
@@ -97,9 +97,33 @@ addBtn.click(function(){
         '<td><div onclick="deleteClick('+i+')" class="ico del"></div></td>'+
         '</tr>'
         i++;
+        /*desktop view*/
+        }else{
+            $('thead').hide();
+            outputContent +=
+            '<div class="taskItem">'+
+            '<div class="taskMobile">'+i+'#<div onclick="showRename('+i+')" class="edit'+i+' '+doneClass+'">'+toDoList["item"+i].task+'</div></div>'+
+            '<div class="typeMobile">Type:<div onclick="showSelect('+i+')" class="type'+i+'">'+toDoList["item"+i].type+'</div></div>'+
+            '<div>Task created: '+toDoList["item"+i].taskCreated+'('+toDoList["item"+i].time+')</div>'+
+            '<div class="taskControls"><div onclick="clickEvent('+i+')" class="done ico"></div><div onclick="deleteClick('+i+')" class="ico del"></div></div>'+
+            '</div>'
+
+            i++;
+            /*mobile view*/
+        }
         $('#editOutputLoc').html(outputContent);
     };
  };
+/*
+ var width = $(window).width();
+$(window).on('resize', function() {
+  if ($(this).width() == 769 || $(this).width() == 767) {
+      editList();
+      console.log('works');
+  }
+});
+refresh page if changing with (kinda works)need fix*/
+
 
 
  function clickEvent(a){
@@ -109,6 +133,7 @@ addBtn.click(function(){
         toDoList['item'+a].done = false;
         toDoList.set
      }
+     localStorage.setItem('toDoList', JSON.stringify(toDoList));
     editList();  
  };
  /*finishes task*/
@@ -127,7 +152,7 @@ addBtn.click(function(){
     };
   }
  function showRename(a){
-     $('<td><input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text"></td>').replaceAll( ".edit"+a );
+     $('<input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text">').replaceAll( ".edit"+a );
  }
  /*Rename task*/
  $('#editList').click(function() {
