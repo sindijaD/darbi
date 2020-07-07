@@ -41,62 +41,44 @@ button:focus {
     border: 5px auto;
 }
 /*elements*/
-
-body{
-    main{
-        @include flexColum();
+main{
+    @include flexColum();
+    width: 100%;
+    margin: 0 auto;
+    nav{
         width: 100%;
         @media (min-width: 768px) {
             width: 768px;
-            margin: 0 auto;
-         };
-        nav{
-            width: 100%;
-            @media (max-width: 768px) {
-                width: 100%;
-             };
-            .nav{
-                @include flexInline();
-                justify-content: center;
-            }
-        }
-        .content{
-            @include flexColum();
+        };
+        ul{
+            @include flexInline();
             justify-content: center;
-            border: 1px solid rgb(222, 226, 230);
-            border-top: none;
             width: 100%;
-            padding: 20px;
-            border-bottom-right-radius: 5px;
-            border-bottom-left-radius: 5px;
-            .output{
-                width: max-content;
-                @media (max-width: 768px) {
-                    width: 100%;
-                };
-                .pages{
-                    .list-group{
-                        width: max-content;
-                        margin: 0 auto;
-                    }
-                }
-
-            }
-            .add{
-                @include flexInline();
-                width: max-content;
-                max-width: 400px;
-                margin-bottom: 20px;
-                #task{
-                    margin-left: 10px;
-                    margin-right: 10px;
-                }
-            }
         }
     }
+    .content{
+        @include flexColum();
+        border: 1px solid #dee2e6;
+        border-top: none;
+        padding: 10px;
+        width: 100%;
+        @media (min-width: 768px) {
+            width: 768px;
+        };
+        .add{
+            @include flexInline();
+            input{
+                margin-left: 10px;
+                margin-right: 10px;
+            };
+        }
+        .output{
+            margin-top: 10px;
+        }
+    }
+    margin-bottom: 40px;
 }
-
-
+/*single edit*/
 header, footer,main{
     display: flex;
     justify-content: center;
@@ -105,32 +87,18 @@ h3{
     font-size: 20px;
     margin-right: 10px;
 }
-.input{
-    border: none;
-    background-color: transparent;
-    width: 100px;
-}
-.px100{
-    width: 124px;
-}
-td .form-control{
-    margin-top: -4;
-    margin-bottom: -4;
-}
-.edit134{
-    width: 134px;
-   
+.table{
+    width: max-content;
+    display: none;
+    @media (min-width: 768px) {
+        display: table;
+        width: 100%;
+    }
 }
 .list-group li{
     display: list-item;
     list-style-type: decimal;
-    list-style-position: inside;                        
-}
-.table{
-    width: max-content;
-    @media (max-width: 768px) {
-        width: 100%;
-     }
+    list-style-position: inside;
 }
 #editOutputLoc tr .td {
     width: 134px;
@@ -146,8 +114,7 @@ td .form-control{
         padding-left: 0;
     }
 }
-
-tbody{
+.output{
     @media (max-width: 768px) {
         @include flexInline();
         align-content: flex-start;
@@ -160,20 +127,29 @@ tbody{
         border: 1px solid rgb(222, 226, 230);
         padding: 5px;
         margin: 5px;
-        .taskMobile, .typeMobile{
-            text-align: right;
-            div, input, select{
-                margin: 0 auto;
-                text-align: center;
-            }
+        @media (max-width: 768px) {
+            display: block;
         }
+
         div{
             white-space: nowrap;
             @include flexInline();
             line-height: 38px;
-        
-
         }
+        .taskMobile, .typeMobile{
+            text-align: right;
+            div{
+                white-space: pre-line;
+            }
+            input, select{
+                margin: 0 auto;
+                padding: 0;
+                text-align: center;
+                height: 38px;
+                width: 100px;
+            }
+        }
+      
         .taskControls{
             @include flexInline();
             padding: 5px;

@@ -10,7 +10,18 @@ const addBtn = $('#addtask'),
     taskInput =  $('#task'),
     selectionLoc = $('#taskType'),
     done = $('.done'),
-    outputLoc =  $('.list-group');
+    outputLoc =  $('.output'),
+    tableHeader =
+    '<thead class="thead-dark">'+
+         '<tr>'+
+            '<th scope="col">#</th>'+
+            '<th class="edit134" scope="col">Type</th>'+
+            '<th class="px100" scope="col">Task</th>'+
+            '<th scope="col">Task created</th>'+
+            '<th scope="col">Done</th>'+
+            '<th scope="col">Delete</th>'+
+        '</tr>'+
+    '</thead>';
 function refreshOutput(){   
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -26,7 +37,7 @@ function refreshOutput(){
             outputContent +=
             '<li class="list-group-item '+doneClass+'">'+toDoList["item"+i].task+'</li>'
             i++;
-            outputLoc.html(outputContent);
+            outputLoc.html('<ul class="list-group">'+outputContent+'</ul>');
         };
 };
 refreshOutput();
@@ -72,11 +83,14 @@ addBtn.click(function(){
     });
   });
  /*add value to object by pressing "enter" while input is active*/
+            
 
 
  function editList(){
     var count = Object.keys(toDoList).length,
         outputContent = '',
+        outputMobile = '',
+        a = 1,
         i = 1;
     while (i <= count){
         if (toDoList['item'+i].done === true ){
@@ -84,10 +98,8 @@ addBtn.click(function(){
         }else{
             doneClass = '';
         } 
-        /*Determine if task is accomplished.*/
-        if ($(window).width() > 768) {
-            $('thead').show();
-            outputContent +=
+        /*Determine if task is accomplished for desktop.*/
+        outputContent +=
         '<tr>'+
         '<th scope="row">'+ i +'</th>'+
         '<td onclick="showSelect('+i+')" class="type'+i+' td" >'+toDoList["item"+i].type+'</td>'+
@@ -98,31 +110,26 @@ addBtn.click(function(){
         '</tr>'
         i++;
         /*desktop view*/
-        }else{
-            $('thead').hide();
-            outputContent +=
-            '<div class="taskItem">'+
-            '<div class="taskMobile">'+i+'#<div onclick="showRename('+i+')" class="edit'+i+' '+doneClass+'">'+toDoList["item"+i].task+'</div></div>'+
-            '<div class="typeMobile">Type:<div onclick="showSelect('+i+')" class="type'+i+'">'+toDoList["item"+i].type+'</div></div>'+
-            '<div>Task created: '+toDoList["item"+i].taskCreated+'('+toDoList["item"+i].time+')</div>'+
-            '<div class="taskControls"><div onclick="clickEvent('+i+')" class="done ico"></div><div onclick="deleteClick('+i+')" class="ico del"></div></div>'+
-            '</div>'
-
-            i++;
-            /*mobile view*/
-        }
-        $('#editOutputLoc').html(outputContent);
     };
+    while (a <= count){
+        if (toDoList['item'+a].done === true ){
+            doneClass = 'done_t'
+        }else{
+            doneClass = '';
+        } 
+        /*Determine if task is accomplished for mobile.*/
+        outputMobile +=
+        '<div class="taskItem">'+
+            '<div class="taskMobile">'+a+'#<div onclick="showRename('+a+')" class="edit'+a+' '+doneClass+'">'+toDoList["item"+a].task+'</div></div>'+
+            '<div class="typeMobile">Type:<div onclick="showSelect('+a+')" class="type'+a+'">'+toDoList["item"+a].type+'</div></div><div>Task created</div>'+
+            '<div>'+toDoList["item"+a].taskCreated+'('+toDoList["item"+a].time+')</div>'+
+            '<div class="taskControls"><div onclick="clickEvent('+a+')" class="done ico"></div><div onclick="deleteClick('+a+')" class="ico del"></div></div>'+
+            '</div>'
+            a++;
+        /*mobile view*/
+    };
+    outputLoc.html('<table class="table">'+tableHeader+'<tbody>'+outputContent+'</tbody></table>'+outputMobile);
  };
-/*
- var width = $(window).width();
-$(window).on('resize', function() {
-  if ($(this).width() == 769 || $(this).width() == 767) {
-      editList();
-      console.log('works');
-  }
-});
-refresh page if changing with (kinda works)need fix*/
 
 
 
@@ -159,27 +166,27 @@ refresh page if changing with (kinda works)need fix*/
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
     $(' #downPage, .list-group, .add, #aboutPage').hide();
-    $('.table').show();
+    $('.output, .table').show();
     editList();  
   });
 $('#create_list').click(function () {
     $('.nav-link').removeClass('active');
     $('#create_list').addClass('active');
     $('#downPage, .table, #aboutPage').hide();
-    $('.list-group, .add').show();
+    $('.output, .add').show();
     refreshOutput();
 });
 $('#DownPage').click(function(){
     $('.nav-link').removeClass('active');
     $('#DownPage').addClass('active');
-    $('.table, .list-group, #aboutPage, .table, .add ').hide();
+    $('.table, .output, #aboutPage, .add ').hide();
     $('#downPage').show();
     refreshOutput();
 });
 $('#AboutPage').click(function(){
     $('.nav-link').removeClass('active');
     $('#AboutPage').addClass('active');
-    $('.table, .list-group, #downPage, .table, .add').hide();
+    $('.table, .output, #downPage,  .add').hide();
     $('#aboutPage').show();
     refreshOutput();
 });
@@ -202,5 +209,14 @@ function changeVal(i){
 
 
  /*
+ var width = $(window).width();
+$(window).on('resize', function() {
+  if ($(this).width() == 769 || $(this).width() == 767) {
+      editList();
+      console.log('works');
+  }
+});
+refresh page if changing with (kinda works)need fix
+
     8 julijs  11.30 
  */

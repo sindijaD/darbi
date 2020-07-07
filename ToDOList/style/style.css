@@ -36,7 +36,7 @@ button:focus {
 }
 
 /*elements*/
-body main {
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,27 +47,22 @@ body main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+main nav {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  body main {
+  main nav {
     width: 768px;
-    margin: 0 auto;
   }
 }
 
-body main nav {
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  body main nav {
-    width: 100%;
-  }
-}
-
-body main nav .nav {
+main nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,9 +76,10 @@ body main nav .nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
-body main .content {
+main .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,37 +90,19 @@ body main .content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   border: 1px solid #dee2e6;
   border-top: none;
+  padding: 10px;
   width: 100%;
-  padding: 20px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
-body main .content .output {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-@media (max-width: 768px) {
-  body main .content .output {
-    width: 100%;
+@media (min-width: 768px) {
+  main .content {
+    width: 768px;
   }
 }
 
-body main .content .output .pages .list-group {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  margin: 0 auto;
-}
-
-body main .content .add {
+main .content .add {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,18 +113,18 @@ body main .content .add {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  max-width: 400px;
-  margin-bottom: 20px;
 }
 
-body main .content .add #task {
+main .content .add input {
   margin-left: 10px;
   margin-right: 10px;
 }
 
+main .content .output {
+  margin-top: 10px;
+}
+
+/*single edit*/
 header, footer, main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -161,41 +139,24 @@ h3 {
   margin-right: 10px;
 }
 
-.input {
-  border: none;
-  background-color: transparent;
-  width: 100px;
+.table {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: none;
 }
 
-.px100 {
-  width: 124px;
-}
-
-td .form-control {
-  margin-top: -4;
-  margin-bottom: -4;
-}
-
-.edit134 {
-  width: 134px;
+@media (min-width: 768px) {
+  .table {
+    display: table;
+    width: 100%;
+  }
 }
 
 .list-group li {
   display: list-item;
   list-style-type: decimal;
   list-style-position: inside;
-}
-
-.table {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-@media (max-width: 768px) {
-  .table {
-    width: 100%;
-  }
 }
 
 #editOutputLoc tr .td {
@@ -216,7 +177,7 @@ td .form-control {
 }
 
 @media (max-width: 768px) {
-  tbody {
+  .output {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -238,7 +199,7 @@ td .form-control {
   }
 }
 
-tbody .taskItem {
+.output .taskItem {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -247,16 +208,13 @@ tbody .taskItem {
   margin: 5px;
 }
 
-tbody .taskItem .taskMobile, tbody .taskItem .typeMobile {
-  text-align: right;
+@media (max-width: 768px) {
+  .output .taskItem {
+    display: block;
+  }
 }
 
-tbody .taskItem .taskMobile div, tbody .taskItem .taskMobile input, tbody .taskItem .taskMobile select, tbody .taskItem .typeMobile div, tbody .taskItem .typeMobile input, tbody .taskItem .typeMobile select {
-  margin: 0 auto;
-  text-align: center;
-}
-
-tbody .taskItem div {
+.output .taskItem div {
   white-space: nowrap;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -271,7 +229,23 @@ tbody .taskItem div {
   line-height: 38px;
 }
 
-tbody .taskItem .taskControls {
+.output .taskItem .taskMobile, .output .taskItem .typeMobile {
+  text-align: right;
+}
+
+.output .taskItem .taskMobile div, .output .taskItem .typeMobile div {
+  white-space: pre-line;
+}
+
+.output .taskItem .taskMobile input, .output .taskItem .taskMobile select, .output .taskItem .typeMobile input, .output .taskItem .typeMobile select {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  height: 38px;
+  width: 100px;
+}
+
+.output .taskItem .taskControls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
