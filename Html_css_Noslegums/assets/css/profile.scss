@@ -1,21 +1,9 @@
 ---
 ---
-$screen-md-min: 768px;
-$screen-lg-min: 1440px;
- // Medium devices
- @mixin md {
-    @media (min-width: #{$screen-md-min}) {
-        @content;
-    }
- }
- // Large devices
- @mixin lg {
-    @media (min-width: #{$screen-lg-min}) {
-        @content;
-    }
- }
+@import "global/variables";
+@import "global/mixins";
 
- body{
+body{
      background-image: url(../img/BG_profile_mobile.jpg);
      background-size: contain;
      background-position: top;
