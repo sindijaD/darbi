@@ -124,7 +124,7 @@ main .content .output {
   margin-top: 10px;
 }
 
-/*single edit*/
+/*structure edit*/
 header, footer, main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,8 +176,9 @@ h3 {
   padding-left: 0;
 }
 
+/*single edit*/
 @media (max-width: 768px) {
-  .output {
+  .cards {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -199,7 +200,7 @@ h3 {
   }
 }
 
-.output .taskItem {
+.cards .taskItem {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -208,13 +209,13 @@ h3 {
   margin: 5px;
 }
 
-@media (max-width: 768px) {
-  .output .taskItem {
-    display: block;
+@media (min-width: 768px) {
+  .cards .taskItem {
+    display: none;
   }
 }
 
-.output .taskItem div {
+.cards .taskItem div {
   white-space: nowrap;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,15 +230,15 @@ h3 {
   line-height: 38px;
 }
 
-.output .taskItem .taskMobile, .output .taskItem .typeMobile {
+.cards .taskItem .taskMobile, .cards .taskItem .typeMobile {
   text-align: right;
 }
 
-.output .taskItem .taskMobile div, .output .taskItem .typeMobile div {
+.cards .taskItem .taskMobile div, .cards .taskItem .typeMobile div {
   white-space: pre-line;
 }
 
-.output .taskItem .taskMobile input, .output .taskItem .taskMobile select, .output .taskItem .typeMobile input, .output .taskItem .typeMobile select {
+.cards .taskItem .taskMobile input, .cards .taskItem .taskMobile select, .cards .taskItem .typeMobile input, .cards .taskItem .typeMobile select {
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -245,7 +246,7 @@ h3 {
   width: 100px;
 }
 
-.output .taskItem .taskControls {
+.cards .taskItem .taskControls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,4 +259,56 @@ h3 {
           align-items: center;
   padding: 5px;
 }
+
+/*mobile edit page*/
+table tbody tr {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+table tbody tr th {
+  font-weight: bold;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  width: 43px;
+}
+
+table tbody tr td:nth-child(2) {
+  padding: 0;
+  height: 54px;
+  width: 156px;
+  line-height: 54px;
+  padding-left: 0;
+}
+
+table tbody tr td:nth-child(3) {
+  width: 188px;
+  vertical-align: middle;
+}
+
+table tbody tr input {
+  height: 54px;
+  padding-left: 10px;
+  width: 178px;
+}
+
+table tbody tr input:focus {
+  outline: none;
+}
+
+table tbody tr input:hover {
+  content: 'edit';
+}
+
+table tbody tr .form-control {
+  height: 100%;
+  width: 156px;
+  text-align: center;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/*table edit page*/
 /*# sourceMappingURL=style.css.map */

@@ -128,7 +128,7 @@ addBtn.click(function(){
             a++;
         /*mobile view*/
     };
-    outputLoc.html('<table class="table">'+tableHeader+'<tbody>'+outputContent+'</tbody></table>'+outputMobile);
+    outputLoc.html('<table class="table">'+tableHeader+'<tbody>'+outputContent+'</tbody></table>'+'<div class="cards">'+outputMobile+'</div>');
  };
 
 
@@ -144,12 +144,17 @@ addBtn.click(function(){
     editList();  
  };
  /*finishes task*/
-
  function deleteClick(a){
-    //delete toDoList['item'+a];   //only can delete last task
+    var count = Object.keys(toDoList).length;
+    while( a <= count){
+        toDoList['item'+a] = toDoList['item'+(a+1)];
+        a++
+    }
+    delete toDoList['item'+count];
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+    //only can delete last task
+    editList();
  };
-
-
  /*delete task*/
  function rename(event, a) {
     var x = event.which;
