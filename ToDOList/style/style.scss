@@ -40,6 +40,10 @@ button:focus {
     outline: none;
     border: 5px auto;
 }
+body{
+    width: 100%;
+    height: 100vh;
+}
 /*elements*/
 main{
     @include flexColum();
@@ -100,22 +104,9 @@ h3{
     list-style-type: decimal;
     list-style-position: inside;
 }
-#editOutputLoc tr .td {
-    width: 134px;
-    padding: 0;
-    vertical-align: middle;
-    td{
-        padding: 0;
-        padding-left: 10px;
-        vertical-align: middle;
-    }
-    select{
-        margin: 0;
-        padding-left: 0;
-    }
-}
 /*single edit*/
 .cards{
+    display: none;
     @media (max-width: 768px) {
         @include flexInline();
         align-content: flex-start;
@@ -124,32 +115,50 @@ h3{
         width: 100%;
     }
     .taskItem{
-        width: min-content;
+        width: 234px;
         border: 1px solid rgb(222, 226, 230);
+        background-color: rgb(239, 239, 239);
         padding: 5px;
         margin: 5px;
+        div:nth-child(3),div:nth-child(4){
+            text-align: center;
+        }
         @media (min-width: 768px) {
             display: none;
         }
-        div{
-            white-space: nowrap;
-            @include flexInline();
-            line-height: 38px;
+        div:nth-child(3){
+            color: var(--dark);
+            font-weight: bold;
         }
-        .taskMobile, .typeMobile{
-            text-align: right;
-            div{
-                white-space: pre-line;
+        .taskMobile{
+            p{
+                color: var(--dark);
+                font-weight: bold;
             }
-            input, select{
-                margin: 0 auto;
-                padding: 0;
-                text-align: center;
-                height: 38px;
-                width: 100px;
+            input, div{
+                background-color: #fff;
+                border: 1px solid rgb(222, 226, 230);
+                width: 100%;
+                height: 54px;
+                line-height: 54px;
+                text-align: left;
             }
         }
-      
+        .typeMobile{
+            p{
+                color: var(--dark);
+                font-weight: bold;
+            }
+            input, div, select{
+                background-color: #fff;
+                padding-left: 0;
+                border: 1px solid rgb(222, 226, 230);
+                width: 100%;
+                line-height: 54px;
+                height: 54px;
+                text-align: left;
+            }
+        }
         .taskControls{
             @include flexInline();
             padding: 5px;
@@ -158,7 +167,6 @@ h3{
 }
 /*mobile edit page*/
 table{
-   
     tbody{
         tr{
             width: fit-content;
@@ -202,3 +210,28 @@ table{
     }
 }
 /*table edit page*/
+
+/*warning field*/
+.overlay{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #7c7d7eb0;
+    .warningEmpty{
+        border: 1px solid rgb(222, 226, 230);
+        background-color: #fff;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 5px;
+        h3{
+            color: var(--danger);
+        }
+        p{
+            font-weight: bold;
+        }
+    }
+}

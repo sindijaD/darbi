@@ -45,12 +45,13 @@
                     <option>Once a Year</option>
                     <option>Do do this ever</option>
                 </select>
-                <input class="form-control" id="task" type="text"  placeholder="Task description">
+                <input class="form-control" id="task" type="text"  placeholder="Task description" maxlength="30">
                 <button id="addtask" class="btn btn-dark">Add Task</button>              
             </div>
             <div class="output"></div>
             <section id="downPage" style="display: none;">
                 <h2>Download page</h2>
+                <button id="downloadList" class="btn btn-dark">Download list</button>
             </section>
             <section id="aboutPage" style="display: none;">
                 <h2>Made by</h2>
@@ -64,6 +65,13 @@
                   </div>
             </section>
         </section >
+        <div class="overlay">
+            <div class="warningEmpty">
+                <h3>Warning</h3>
+                <p>Don't leave task field empty</p>
+                <button id="cancel" class="btn btn-dark">Continue</button>
+            </div>
+        </div>
     </main>
     <footer>Austris Daugulis &copy</footer>
     <script src="js/jquery-3.5.1.js.js"></script>

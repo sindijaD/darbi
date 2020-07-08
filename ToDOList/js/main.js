@@ -22,6 +22,7 @@ const addBtn = $('#addtask'),
             '<th scope="col">Delete</th>'+
         '</tr>'+
     '</thead>';
+/*btn locations and inputs*/
 function refreshOutput(){   
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -33,7 +34,7 @@ function refreshOutput(){
             }else{
                 doneClass = '';
             }
-            /*Determine if task is accomplished.*/
+/*Determine if task is accomplished.*/
             outputContent +=
             '<li class="list-group-item '+doneClass+'">'+toDoList["item"+i].task+'</li>'
             i++;
@@ -48,8 +49,7 @@ function addValueToOb(){
         year = new Date().getUTCFullYear(),
         hours = new Date().getHours(),
         minutes = new Date().getUTCMinutes(),
-        count = Object.keys(toDoList).length,
-        count1 = Object.keys(toDoList).length+1;
+        count = Object.keys(toDoList).length;
         toDoList['item0'] = {
             type: selectionLoc.val(),
             task: taskInput.val(),
@@ -57,35 +57,43 @@ function addValueToOb(){
             time:hours+':'+minutes,
             done: false
         };
+/*creating object item*/
         taskInput.val('');//clear input field
-        /*creating object item*/
         if(count == 0 ){
             toDoList['item1'] = toDoList['item0'];
             delete toDoList['item0'];
         }else{
-            toDoList['item'+count1] = toDoList['item0'];
+            toDoList['item'+(count+1)] = toDoList['item0'];
             delete toDoList['item0'];
         }
-        /*changing object keys names, to prevent overwriting*/
+/*changing object keys names, to prevent overwriting*/
         localStorage.setItem('toDoList', JSON.stringify(toDoList));
     refreshOutput();
 };
-
 addBtn.click(function(){
+    if(taskInput.val()==""){
+        $('.overlay').css('display', 'flex');
+        return;
+    }
     addValueToOb();
  });
  /*add value to object by pressing "add task" btn*/
  $(document).ready(function(){
     $("#task").keydown(function(event){
         if(event.which == 13){//13 enter key
+            if(taskInput.val()==""){
+                $('.overlay').css('display', 'flex');
+                return;
+            }
             addValueToOb();
         }
     });
   });
  /*add value to object by pressing "enter" while input is active*/
-            
-
-
+ $('#cancel').click(function(){
+     $('.overlay').hide();
+ });
+ /*hide overlay/warning block*/
  function editList(){
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -98,7 +106,7 @@ addBtn.click(function(){
         }else{
             doneClass = '';
         } 
-        /*Determine if task is accomplished for desktop.*/
+/*Determine if task is accomplished for desktop.*/
         outputContent +=
         '<tr>'+
         '<th scope="row">'+ i +'</th>'+
@@ -109,7 +117,7 @@ addBtn.click(function(){
         '<td><div onclick="deleteClick('+i+')" class="ico del"></div></td>'+
         '</tr>'
         i++;
-        /*desktop view*/
+/*desktop view*/
     };
     while (a <= count){
         if (toDoList['item'+a].done === true ){
@@ -117,22 +125,29 @@ addBtn.click(function(){
         }else{
             doneClass = '';
         } 
-        /*Determine if task is accomplished for mobile.*/
+/*Determine if task is accomplished for mobile.*/
         outputMobile +=
-        '<div class="taskItem">'+
-            '<div class="taskMobile">'+a+'#<div onclick="showRename('+a+')" class="edit'+a+' '+doneClass+'">'+toDoList["item"+a].task+'</div></div>'+
-            '<div class="typeMobile">Type:<div onclick="showSelect('+a+')" class="type'+a+'">'+toDoList["item"+a].type+'</div></div><div>Task created</div>'+
-            '<div>'+toDoList["item"+a].taskCreated+'('+toDoList["item"+a].time+')</div>'+
-            '<div class="taskControls"><div onclick="clickEvent('+a+')" class="done ico"></div><div onclick="deleteClick('+a+')" class="ico del"></div></div>'+
+            '<div class="taskItem">'+
+                '<div class="taskMobile">'+
+                    '<p>'+a+'#'+'</p>'+
+                    '<div onclick="showRename('+a+')" class="edit'+a+' '+doneClass+'">'+toDoList["item"+a].task+'</div>'+
+                '</div>'+
+                '<div class="typeMobile">'+
+                    '<p>Type:</p>'+
+                    '<div onclick="showSelect('+a+')" class="type'+a+' td">'+toDoList["item"+a].type+'</div>'+
+                '</div>'+
+            '<div>Task created</div>'+
+                   '<div>'+toDoList["item"+a].taskCreated+'('+toDoList["item"+a].time+')</div>'+
+                '<div class="taskControls">'+
+                    '<div onclick="clickEvent('+a+')" class="done ico"></div>'+
+                    '<div onclick="deleteClick('+a+')" class="ico del"></div>'+
+                '</div>'+
             '</div>'
             a++;
-        /*mobile view*/
+/*mobile view*/
     };
     outputLoc.html('<table class="table">'+tableHeader+'<tbody>'+outputContent+'</tbody></table>'+'<div class="cards">'+outputMobile+'</div>');
  };
-
-
-
  function clickEvent(a){
      if( toDoList['item'+a].done === false){
         toDoList['item'+a].done = true;
@@ -152,21 +167,51 @@ addBtn.click(function(){
     }
     delete toDoList['item'+count];
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
-    //only can delete last task
+//only can delete last task
     editList();
  };
  /*delete task*/
+ function showRename(a){
+    $('<input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text" maxlength="30">').replaceAll( ".edit"+a );
+}
  function rename(event, a) {
+     var value =  $('.editV'+a).val();
+    if ($(window).width() < 768 ) {
+        $('.table').remove();
+    }
+/*hides for moment desktop table ,because double inputs cant edit */
     var x = event.which;
     if(x == 13 ){
-        toDoList['item'+a].task = $('.editV'+a).val();
+        if( value == ""){
+            $('.overlay').css('display', 'flex');
+            return;
+        }
+/*check if input field is empty */
+        toDoList['item'+a].task = value;
         editList(); 
     };
   }
- function showRename(a){
-     $('<input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text">').replaceAll( ".edit"+a );
- }
- /*Rename task*/
+/*Rename task*/
+ function showSelect(i){
+    var selector = $( '#taskType' ).clone();
+    $('.type'+i).html(selector);
+/*clone selection from create list page*/
+    $('.type'+i+' .form-control').show();
+    $('.type'+i).prop("onclick", null).off("click");
+/*preventing flickering */
+    $('.type'+i+' .form-control').attr("onchange", "changeVal("+i+")");
+}
+/*creating selection in Edit list*/
+function changeVal(i){
+    if ($(window).width() < 768 ) {
+        $('.table').remove();
+    }
+/*only removes element if app is in mobile version(without it cant change value in mobile)*/
+    toDoList['item'+i].type = $('.type'+i+' .form-control').val();
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+    editList();  
+}
+/* changes value  in object and rewrites htm*/
  $('#editList').click(function() {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
@@ -195,33 +240,3 @@ $('#AboutPage').click(function(){
     $('#aboutPage').show();
     refreshOutput();
 });
-function showSelect(i){
-    var selector = $( '#taskType' ).clone();
-    $('.type'+i).html(selector);
-    /*clone selection from create list page*/
-    $('.type'+i+' .form-control').show();
-    $('.type'+i).prop("onclick", null).off("click");
-    /*preventing flickering */
-    $('.type'+i+' .form-control').attr("onchange", "changeVal("+i+")");
-}
-/*creating selection in Edit list*/
-function changeVal(i){
-    toDoList['item'+i].type = $('.type'+i+' .form-control').val();
-    editList();  
-}
-/* changes value  in object and rewrites htm*/
-
-
-
- /*
- var width = $(window).width();
-$(window).on('resize', function() {
-  if ($(this).width() == 769 || $(this).width() == 767) {
-      editList();
-      console.log('works');
-  }
-});
-refresh page if changing with (kinda works)need fix
-
-    8 julijs  11.30 
- */
