@@ -16,6 +16,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .done_t {
     text-decoration: double line-through var(--danger);
 }
@@ -110,6 +111,43 @@ h3 {
     list-style-position: inside;
 }
 /*single edit*/
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(5px);
+    }
+    40% {
+        transform: translateY(0);
+    }
+    55% {
+        transform: translateY(-3px);
+    }
+    65% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(7px);
+    }
+    87% {
+        transform: translateY(0);
+    }
+    93% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@mixin edit {
+    background-image: url(../ico/marker-solid.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .cards {
     display: none;
     @media (max-width: 768px) {
@@ -119,60 +157,70 @@ h3 {
         justify-content: center;
         width: 100%;
     }
-    .taskItem {
-        width: 234px;
-        border: 1px solid rgb(222, 226, 230);
-        background-color: rgb(239, 239, 239);
-        padding: 5px;
-        margin: 5px;
-        div:nth-child(3),
-        div:nth-child(4) {
-            text-align: center;
-        }
-        @media (min-width: 768px) {
-            display: none;
-        }
-        div:nth-child(3) {
-            color: var(--dark);
-            font-weight: bold;
-        }
-        .taskMobile {
-            p {
-                color: var(--dark);
+    .card {
+        margin: 10px;
+        max-width: 200px;
+        width: 100%;
+        height: fit-content;
+        .card-header {
+            width: 100%;
+            @include flexInline();
+            .cardI {
                 font-weight: bold;
+                font-size: 20px;
             }
-            input,
-            div {
-                background-color: #fff;
-                border: 1px solid rgb(222, 226, 230);
-                width: 220px;
-                height: 54px;
-                line-height: 54px;
-                text-align: left;
-                padding-left: 10px;
+            .cardTime {
+                font-size: 15px;
+                margin-left: auto;
             }
         }
-        .typeMobile {
-            p {
-                color: var(--dark);
-                font-weight: bold;
+        .card-body {
+            .cardTask:focus {
+                @include edit();
+                border-radius: 2px;
+                color: var(--light);
             }
-            input,
-            div,
-            select {
-                background-color: #fff;
-                padding-left: 0;
-                border: 1px solid rgb(222, 226, 230);
+            .cardTask,
+            input {
+                font-size: 20px;
+                height: 30px;
+                margin-bottom: 20px;
                 width: 100%;
-                line-height: 54px;
-                height: 54px;
+                margin: 10px 0 40px 0;
+                padding: 0;
+                border: none;
+                color: var(--light);
                 text-align: left;
-                text-indent: 10px;
+                background-color: transparent;
+                &:focus {
+                    @include edit();
+                    outline: 0;
+                }
+            }
+            p,
+            select,
+            option {
+                height: unset;
+                font-size: 20px;
+                height: 30px;
+                vertical-align: middle;
+                margin-bottom: 20px;
+                padding: 0;
+                text-align: left;
+                border: none;
             }
         }
         .taskControls {
             @include flexInline();
-            padding: 5px;
+            .done:hover {
+                animation-name: bounce;
+                transform: translateZ(0);
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+            }
         }
     }
 }

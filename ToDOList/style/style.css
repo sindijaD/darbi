@@ -170,6 +170,83 @@ h3 {
 }
 
 /*single edit*/
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  55% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  65% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(7px);
+            transform: translateY(7px);
+  }
+  87% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  93% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  55% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  65% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(7px);
+            transform: translateY(7px);
+  }
+  87% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  93% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 .cards {
   display: none;
 }
@@ -197,65 +274,17 @@ h3 {
   }
 }
 
-.cards .taskItem {
-  width: 234px;
-  border: 1px solid #dee2e6;
-  background-color: #efefef;
-  padding: 5px;
-  margin: 5px;
-}
-
-.cards .taskItem div:nth-child(3),
-.cards .taskItem div:nth-child(4) {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .cards .taskItem {
-    display: none;
-  }
-}
-
-.cards .taskItem div:nth-child(3) {
-  color: var(--dark);
-  font-weight: bold;
-}
-
-.cards .taskItem .taskMobile p {
-  color: var(--dark);
-  font-weight: bold;
-}
-
-.cards .taskItem .taskMobile input,
-.cards .taskItem .taskMobile div {
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-  width: 220px;
-  height: 54px;
-  line-height: 54px;
-  text-align: left;
-  padding-left: 10px;
-}
-
-.cards .taskItem .typeMobile p {
-  color: var(--dark);
-  font-weight: bold;
-}
-
-.cards .taskItem .typeMobile input,
-.cards .taskItem .typeMobile div,
-.cards .taskItem .typeMobile select {
-  background-color: #fff;
-  padding-left: 0;
-  border: 1px solid #dee2e6;
+.cards .card {
+  margin: 10px;
+  max-width: 200px;
   width: 100%;
-  line-height: 54px;
-  height: 54px;
-  text-align: left;
-  text-indent: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
-.cards .taskItem .taskControls {
+.cards .card .card-header {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,7 +295,91 @@ h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5px;
+}
+
+.cards .card .card-header .cardI {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cards .card .card-header .cardTime {
+  font-size: 15px;
+  margin-left: auto;
+}
+
+.cards .card .card-body .cardTask:focus {
+  background-image: url(../ico/marker-solid.svg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 2px;
+  color: var(--light);
+}
+
+.cards .card .card-body .cardTask,
+.cards .card .card-body input {
+  font-size: 20px;
+  height: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  margin: 10px 0 40px 0;
+  padding: 0;
+  border: none;
+  color: var(--light);
+  text-align: left;
+  background-color: transparent;
+}
+
+.cards .card .card-body .cardTask:focus,
+.cards .card .card-body input:focus {
+  background-image: url(../ico/marker-solid.svg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  outline: 0;
+}
+
+.cards .card .card-body p,
+.cards .card .card-body select,
+.cards .card .card-body option {
+  height: unset;
+  font-size: 20px;
+  height: 30px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: left;
+  border: none;
+}
+
+.cards .card .taskControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards .card .taskControls .done:hover {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
 }
 
 /*mobile edit page*/
