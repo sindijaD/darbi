@@ -11,6 +11,7 @@ const addBtn = $('#addtask'),
     selectionLoc = $('#taskType'),
     done = $('.done'),
     outputLoc =  $('.output'),
+    downloadBtn = $('#downloadList'),
     tableHeader =
     '<thead class="thead-dark">'+
          '<tr>'+
@@ -172,7 +173,7 @@ addBtn.click(function(){
  };
  /*delete task*/
  function showRename(a){
-    $('<input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text" maxlength="30">').replaceAll( ".edit"+a );
+    $('<td><input onkeypress="rename(event, '+a+')" class="input editV'+a+' "value="'+toDoList['item'+a].task+'" type="text" maxlength="30"></td>').replaceAll( ".edit"+a );
 }
  function rename(event, a) {
      var value =  $('.editV'+a).val();
@@ -212,6 +213,7 @@ function changeVal(i){
     editList();  
 }
 /* changes value  in object and rewrites htm*/
+
  $('#editList').click(function() {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
