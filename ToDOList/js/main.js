@@ -95,6 +95,9 @@ $('#cancel').click(function () {
     $('.overlay').hide();
 });
 /*hide overlay/warning block*/
+
+
+
 function editList() {
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -111,12 +114,21 @@ function editList() {
         outputContent +=
             '<tr>' +
             '<th scope="row">' + i + '</th>' +
-            '<td onclick="showSelect(' + i + ')" class="type' + i + ' td" >' + toDoList["item" + i].type + '</td>' +
-            '<td onclick="showRename(' + i + ')" class="edit' + i + ' ' + doneClass + '">' + toDoList["item" + i].task + '</td>' +
+            '<td class="type' + i + ' td">'+
+                '<select onchange="changeVal('+i+')" class=".type'+i+' form-control" id="taskType">'+
+                    '<option>'+toDoList['item'+i].type+'</option>'+
+                    '<option>Do once</option>'+
+                    '<option>EveryDay</option>'+
+                    '<option>Once a week</option>'+
+                    'option>Once a month</option>'+
+                    '<option>Once a Year</option>'+
+                    '<option>Do do this ever</option>'+
+                '</select></td>'+
+            '<td><input class="editV' + i + ' "value="' + toDoList['item' + i].task + '" type="text" maxlength="30"></td>' +
             '<td>' + toDoList["item" + i].taskCreated + ' ' + toDoList["item" + i].time + '</td>' +
             '<td><div onclick="clickEvent(' + i + ')" class="done ico"></div></td>' +
             '<td><div onclick="deleteClick(' + i + ')" class="ico del"></div></td>' +
-            '</tr>'
+            '</tr>';
         i++;
         /*desktop view*/
     };
@@ -177,14 +189,14 @@ function rename(event, a) {
     if ($(window).width() < 768) {
         $('.table').remove();
     }
-    /*hides for moment desktop table ,because double inputs cant edit */
+/*hides for moment desktop table ,because double inputs cant edit */
     var x = event.which;
     if (x == 13) {
         if (value == "") {
             $('.overlay').css('display', 'flex');
             return;
         }
-        /*check if input field is empty */
+/*check if input field is empty */
         toDoList['item' + a].task = value;
         editList();
     };
@@ -192,6 +204,9 @@ function rename(event, a) {
 /*Rename task*/
 function showSelect(i) {
     var selector = $('#taskType').clone();
+    if ($(window).width() > 768) {
+        return;
+    }
     $('.type' + i).html(selector);
     /*clone selection from create list page*/
     $('.type' + i + ' .form-control').show();
@@ -199,7 +214,6 @@ function showSelect(i) {
     /*preventing flickering */
     $('.type' + i + ' .form-control').attr("onchange", "changeVal(" + i + ")");
 }
-/*creating selection in Edit list*/
 function changeVal(i) {
     if ($(window).width() < 768) {
         $('.table').remove();
@@ -210,6 +224,8 @@ function changeVal(i) {
     editList();
 }
 /* changes value  in object and rewrites htm*/
+/*creating selection in Edit list*/
+
 
 $('#editList').click(function () {
     $('.nav-link').removeClass('active');
