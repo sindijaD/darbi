@@ -42,6 +42,25 @@ body {
 }
 
 /*elements*/
+header {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../ico/header-bg.jpg);
+  background-size: cover;
+  height: 200px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: inset 0 0 150px 50px #000;
+          box-shadow: inset 0 0 150px 50px #000;
+}
+
+header h1 {
+  margin: auto;
+  font-weight: 900;
+  font-size: 50px;
+  color: var(--gray);
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -344,13 +363,12 @@ h3 {
 }
 
 .cards .card .card-body .cardTask:focus {
-  background-image: url(../ico/marker-solid.svg);
+  background-image: url(../ico/marker-dark.svg);
   background-position: right;
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: 95% 95%;
   border-radius: 2px;
-  color: var(--light);
 }
 
 .cards .card .card-body .cardTask,
@@ -365,7 +383,6 @@ h3 {
   padding: 0 20px 0 10px;
   border: 2px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px;
-  color: var(--light);
   text-align: justify;
   background-color: transparent;
 }
@@ -377,7 +394,7 @@ h3 {
 
 .cards .card .card-body .cardTask {
   margin-bottom: 15px;
-  background-image: url(../ico/marker-solid.svg);
+  background-image: url(../ico/marker-dark.svg);
   background-position: right;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -401,12 +418,12 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(../ico/swap_white.svg);
+  background-image: url(../ico/swap_dark.svg);
   background-position: right;
   background-size: 20px;
 }
 
-.cards .card .taskControls {
+.cards .card .card-footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -419,11 +436,11 @@ h3 {
           align-items: center;
 }
 
-.cards .card .taskControls .done {
-  background-image: url(../ico/clipboard-check-solid-white.svg);
+.cards .card .card-footer .done {
+  background-image: url(../ico/clipboard-check-solid-black.svg);
 }
 
-.cards .card .taskControls .done:hover {
+.cards .card .card-footer .done:hover {
   -webkit-animation-name: bounce;
           animation-name: bounce;
   -webkit-transform: translateZ(0);
@@ -440,8 +457,8 @@ h3 {
           animation-direction: normal;
 }
 
-.cards .card .taskControls .del {
-  background-image: url(../ico/trash-alt-solid-white.svg);
+.cards .card .card-footer .del {
+  background-image: url(../ico/trash-alt-solid-black.svg);
 }
 
 /*mobile edit page*/
@@ -512,24 +529,6 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
   padding: 40px;
-}
-
-.donwPage form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.donwPage form textarea {
-  margin-bottom: 40px;
-  margin-top: 40px;
 }
 
 /*download Page*/

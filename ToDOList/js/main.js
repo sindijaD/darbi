@@ -139,17 +139,15 @@ function editList() {
             doneClass = '';
         }
         /*Determine if task is accomplished for mobile.*/
-        outputMobile += '<div class="card text-white bg-secondary mb-3">' +
-            '<div class="card-header"><div class="cardI">'+a+'#</div><div class="cardTime">'+toDoList["item" + a].taskCreated + ' ' + toDoList["item" + a].time + '</div></div>'+
-            '<div class="card-body">'+
-            '<p onclick="showRename(' + a + ')" class="edit' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>' + '<p onclick="showSelect(' + a + ')" class="type' + a + ' td">' + toDoList["item" + a].type + '</p>' +
-            '<div class="taskControls">' +
-                '<div onclick="clickEvent(' + a + ')" class="done ico"></div>' +
-                '<div onclick="deleteClick(' + a + ')" class="ico del"></div>' +
+        outputMobile +=
+        '<div class="card border-secondary mb-3" style="max-width: 18rem;">'+
+            '<div class="card-header bg-light border-secondary"><div class="cardI">'+a+'#</div><div class="cardTime">'+toDoList["item" + a].taskCreated + ' ' + toDoList["item" + a].time + '</div></div>'+
+                '<div class="card-body text-dark"><p onclick="showRename(' + a + ')" class="edit' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>'+
+                '<p onclick="showSelect(' + a + ')" class="type' + a + ' td">' + toDoList["item" + a].type + '</p>'+
             '</div>'+
-            '</div></div>'
+            '<div class="card-footer bg-transparent border-secondary"><div onclick="clickEvent(' + a + ')" class="done ico"></div><div onclick="deleteClick(' + a + ')" class="ico del"></div></div>'+
+        '</div>'
         a++;
-
         /*mobile view*/
     };
     outputLoc.html('<table class="table">' + tableHeader + '<tbody>' + outputContent + '</tbody></table>' + '<div class="cards">' + outputMobile + '</div>');
@@ -185,6 +183,7 @@ function deleteClick(a) {
 /*delete task*/
 function showRename(a) {
     if ($(window).width() < 768) {
+        $('.table').remove();
         $('<textarea onkeypress="rename(event, ' + a + ')" class="input editV' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".edit" +a)
     }else{
         $('<td><input onkeypress="rename(event, ' + a + ')" class="input editV' + a + ' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30"></td>').replaceAll(".edit" + a);
