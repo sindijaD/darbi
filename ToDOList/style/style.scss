@@ -25,12 +25,12 @@
     height: 30px;
 }
 .del {
-    background-image: url(../ico/trash-alt-solid.svg);
+    background-image: url(../ico/trash-alt-solid-black.svg);
     @include background();
     margin: auto;
 }
 .done {
-    background-image: url(../ico/clipboard-check-solid.svg);
+    background-image: url(../ico/clipboard-check-solid-black.svg);
     @include background();
     margin: auto;
 }
@@ -140,13 +140,30 @@ h3 {
         transform: translateY(0);
     }
 }
-
+@keyframes blink {
+    0% {
+        opacity: 20%;
+    }
+    25% {
+        opacity: 50%;
+    }
+    50% {
+        opacity: 100%;
+    }
+    75% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 20%;
+    }
+}
 
 @mixin edit {
     background-image: url(../ico/marker-solid.svg);
     background-position: right;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 20px;
+    background-position: 95% 95%;
 }
 .cards {
     display: none;
@@ -181,21 +198,26 @@ h3 {
                 color: var(--light);
             }
             .cardTask,
-            input {
+            textarea {
+                box-sizing: border-box;
                 font-size: 20px;
-                height: 30px;
-                margin-bottom: 20px;
+                height: 92px;
+                white-space: normal;
                 width: 100%;
-                margin: 10px 0 40px 0;
-                padding: 0;
-                border: none;
+                margin: 10px 0 10px 0;
+                padding: 0 20px 0 10px;
+                border: 2px solid rgba(0, 0, 0, 0.125);
+                border-radius: 5px;
                 color: var(--light);
-                text-align: left;
+                text-align: justify;
                 background-color: transparent;
                 &:focus {
-                    @include edit();
                     outline: 0;
                 }
+            }
+            .cardTask {
+                margin-bottom: 15px;
+                @include edit();
             }
             p,
             select,
@@ -209,17 +231,29 @@ h3 {
                 text-align: left;
                 border: none;
             }
+            p{
+                @include background();
+                background-image: url(../ico/swap_white.svg);
+                background-position: right;
+                background-size: 20px;
+            }
         }
         .taskControls {
             @include flexInline();
-            .done:hover {
-                animation-name: bounce;
-                transform: translateZ(0);
-                animation-duration: 1s;
-                animation-timing-function: ease;
-                animation-delay: 0s;
-                animation-iteration-count: infinite;
-                animation-direction: normal;
+            .done {
+                background-image: url(../ico/clipboard-check-solid-white.svg);
+                &:hover {
+                    animation-name: bounce;
+                    transform: translateZ(0);
+                    animation-duration: 1s;
+                    animation-timing-function: ease;
+                    animation-delay: 0s;
+                    animation-iteration-count: infinite;
+                    animation-direction: normal;
+                }
+            }
+            .del {
+                background-image: url(../ico/trash-alt-solid-white.svg);
             }
         }
     }
@@ -247,22 +281,24 @@ h3 {
                     padding: 0;
                     color: #495057;
                     background-color: #fff;
-                    border: none;
-                    outline: red solid 2px;
+                    border: var(--dark)  solid 2px;
                     box-shadow: none;
                 }
             }
             td:nth-child(3) {
-                width: 170px;
+                width: 224px;
+                padding-right: 20px;
                 input {
                     border: none;
-                    width: 150px;
+                    width: 204px;
                     padding-top: 3px;
                     padding-bottom: 3px;
                     margin-top: -1px;
                     &:focus {
-                        outline: red solid 2px;
-                        outline-offset: 4px;
+                        outline: none;
+                        border: var(--dark)  solid 2px;
+                        border-radius: 5px;
+
                     }
                 }
             }

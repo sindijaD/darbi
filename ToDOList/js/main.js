@@ -128,7 +128,7 @@ function editList() {
         }
         /*Determine if task is accomplished for mobile.*/
         outputMobile += '<div class="card text-white bg-secondary mb-3">' +
-            '<div class="card-header"><div class="cardI">'+a+'#</div><div class="cardTime">'+toDoList["item" + a].taskCreated + ' (' + toDoList["item" + a].time + ')</div></div>'+
+            '<div class="card-header"><div class="cardI">'+a+'#</div><div class="cardTime">'+toDoList["item" + a].taskCreated + ' ' + toDoList["item" + a].time + '</div></div>'+
             '<div class="card-body">'+
             '<p onclick="showRename(' + a + ')" class="edit' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>' + '<p onclick="showSelect(' + a + ')" class="type' + a + ' td">' + toDoList["item" + a].type + '</p>' +
             '<div class="taskControls">' +
@@ -166,7 +166,11 @@ function deleteClick(a) {
 };
 /*delete task*/
 function showRename(a) {
-    $('<input onkeypress="rename(event, ' + a + ')" class="input editV' + a + ' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30">').replaceAll(".edit" + a);
+    if ($(window).width() < 768) {
+        $('<textarea onkeypress="rename(event, ' + a + ')" class="input editV' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".edit" +a)
+    }else{
+        $('<td><input onkeypress="rename(event, ' + a + ')" class="input editV' + a + ' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30"></td>').replaceAll(".edit" + a);
+    }
 }
 function rename(event, a) {
     var value = $('.editV' + a).val();
