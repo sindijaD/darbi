@@ -31,13 +31,13 @@ function refreshOutput() {
         i = 1;
     while (i <= count) {
         if (toDoList['item' + i].done === true) {
-            doneClass = 'done_t'
+            doneClass = 'done_t';
         } else {
             doneClass = '';
         }
         /*Determine if task is accomplished.*/
         outputContent +=
-            '<li class="list-group-item ' + doneClass + '">' + toDoList["item" + i].task + '</li>'
+            '<li onclick="clickEvent('+i+')" class="list-group-item ' + doneClass + '">' + toDoList["item" + i].task + '</li>'
         i++;
         outputLoc.html('<ul class="list-group">' + outputContent + '</ul>');
     };
@@ -106,7 +106,7 @@ function editList() {
         i = 1;
     while (i <= count) {
         if (toDoList['item' + i].done === true) {
-            doneClass = 'done_t'
+            doneClass = 'greenIco'
         } else {
             doneClass = '';
         }
@@ -120,13 +120,13 @@ function editList() {
                     '<option>Do once</option>'+
                     '<option>EveryDay</option>'+
                     '<option>Once a week</option>'+
-                    'option>Once a month</option>'+
+                    '<option>Once a month</option>'+
                     '<option>Once a Year</option>'+
                     '<option>Do do this ever</option>'+
                 '</select></td>'+
-            '<td><input class="editV' + i + ' "value="' + toDoList['item' + i].task + '" type="text" maxlength="30"></td>' +
+            '<td><input onkeypress="rename(event, '+i+')" class="editV' + i + ' "value="' + toDoList['item' + i].task + '" type="text" maxlength="30"></td>' +
             '<td>' + toDoList["item" + i].taskCreated + ' ' + toDoList["item" + i].time + '</td>' +
-            '<td><div onclick="clickEvent(' + i + ')" class="done ico"></div></td>' +
+            '<td><div onclick="clickEvent(' + i + ')" class="done ico '+doneClass+' "></div></td>' +
             '<td><div onclick="deleteClick(' + i + ')" class="ico del"></div></td>' +
             '</tr>';
         i++;
@@ -155,6 +155,8 @@ function editList() {
     outputLoc.html('<table class="table">' + tableHeader + '<tbody>' + outputContent + '</tbody></table>' + '<div class="cards">' + outputMobile + '</div>');
 };
 function clickEvent(a) {
+    var testloc = $('#create_list').hasClass('active');
+
     if (toDoList['item' + a].done === false) {
         toDoList['item' + a].done = true;
     } else {
@@ -162,7 +164,11 @@ function clickEvent(a) {
         toDoList.set
     }
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
-    editList();
+    if(testloc == true){
+        refreshOutput();
+    }else{
+        editList();
+    }
 };
 /*finishes task*/
 function deleteClick(a) {
@@ -225,8 +231,16 @@ function changeVal(i) {
 }
 /* changes value  in object and rewrites htm*/
 /*creating selection in Edit list*/
-
-
+function download() {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(toDoList)));
+  element.setAttribute('download', 'TodoList.');
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+/*download list */
 $('#editList').click(function () {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
