@@ -328,6 +328,19 @@ h3 {
     }
 
 /*download Page*/
+/*about page*/
+.aboutPage{
+    @include flexInline();
+    align-items: flex-start;
+    .card{
+        width:max-content;
+        margin-right: 10px;
+    }
+    p{
+        margin-top: 10px;
+        max-width: 60%;
+    };
+}
 .overlay {
     width: 100%;
     height: 100%;

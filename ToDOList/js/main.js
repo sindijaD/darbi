@@ -22,7 +22,8 @@ const addBtn = $('#addtask'),
         '<th scope="col">Done</th>' +
         '<th scope="col">Delete</th>' +
         '</tr>' +
-        '</thead>';
+        '</thead>',
+    noList = '<h2>There is no tasks in list<h2>' ;
 /*btn locations and inputs*/
 function refreshOutput() {
     var count = Object.keys(toDoList).length,
@@ -178,7 +179,12 @@ function deleteClick(a) {
     delete toDoList['item' + count];
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
     //only can delete last task
-    editList();
+    if(Object.keys(toDoList).length > 0){
+        editList();
+    }else{
+        $('.output').html(noList);
+    }
+
 };
 /*delete task*/
 function showRename(a) {
@@ -230,22 +236,29 @@ function changeVal(i) {
 }
 /* changes value  in object and rewrites htm*/
 /*creating selection in Edit list*/
-function download() {
-  var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(toDoList)));
-  element.setAttribute('download', 'TodoList.');
-  element.style.display = 'none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-}
+
+downloadBtn.click(function download() {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(toDoList)));
+    element.setAttribute('download', 'TodoList.');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  });
 /*download list */
 $('#editList').click(function () {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
     $(' #downPage, .list-group, .add, #aboutPage').hide();
-    $('.output, .table').show();
-    editList();
+    $('.output').show();
+    if(Object.keys(toDoList).length > 0){
+        $('.table').show();
+        editList();
+    }else{
+        $('.output').html(noList);
+    }
+
 });
 $('#create_list').click(function () {
     $('.nav-link').removeClass('active');
@@ -259,6 +272,12 @@ $('#DownPage').click(function () {
     $('#DownPage').addClass('active');
     $('.table, .output, #aboutPage, .add ').hide();
     $('#downPage').show();
+    if(Object.keys(toDoList).length <= 0){
+    downloadBtn.prop('disabled', true);
+    }else{
+    downloadBtn.prop('disabled', false);
+    }
+/*disabled btn if list empty */
     refreshOutput();
 });
 $('#AboutPage').click(function () {
