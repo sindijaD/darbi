@@ -103,13 +103,14 @@ function editList() {
     var count = Object.keys(toDoList).length,
         outputContent = '',
         outputMobile = '',
+        greenIco = '',
         a = 1,
         i = 1;
     while (i <= count) {
         if (toDoList['item' + i].done === true) {
             doneClass = 'greenIco'
         } else {
-            doneClass = '';
+            doneClass = 'done';
         }
         /*Determine if task is accomplished for desktop.*/
         outputContent +=
@@ -127,7 +128,7 @@ function editList() {
                 '</select></td>'+
             '<td><input onkeypress="rename(event, '+i+')" class="editV' + i + ' "value="' + toDoList['item' + i].task + '" type="text" maxlength="30"></td>' +
             '<td>' + toDoList["item" + i].taskCreated + ' ' + toDoList["item" + i].time + '</td>' +
-            '<td><div onclick="clickEvent(' + i + ')" class="done ico '+doneClass+' "></div></td>' +
+            '<td><div onclick="clickEvent(' + i + ')" class="id'+i+'  ico '+doneClass+' "></div></td>' +
             '<td><div onclick="deleteClick(' + i + ')" class="ico del"></div></td>' +
             '</tr>';
         i++;
@@ -135,9 +136,12 @@ function editList() {
     };
     while (a <= count) {
         if (toDoList['item' + a].done === true) {
-            doneClass = 'done_t'
+            doneClass = 'done_t';
+            greenIco = 'greenIco';
         } else {
             doneClass = '';
+            greenIco = 'done';
+
         }
         /*Determine if task is accomplished for mobile.*/
         outputMobile +=
@@ -146,7 +150,7 @@ function editList() {
                 '<div class="card-body text-dark"><p onclick="showRename(' + a + ')" class="edit' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>'+
                 '<p onclick="showSelect(' + a + ')" class="type' + a + ' td">' + toDoList["item" + a].type + '</p>'+
             '</div>'+
-            '<div class="card-footer bg-transparent border-secondary"><div onclick="clickEvent(' + a + ')" class="done ico"></div><div onclick="deleteClick(' + a + ')" class="ico del"></div></div>'+
+            '<div class="card-footer bg-transparent border-secondary"><div onclick="clickEvent(' + a + ')" class="id'+a+' ico '+greenIco+'"></div><div onclick="deleteClick(' + a + ')" class="ico del"></div></div>'+
         '</div>'
         a++;
         /*mobile view*/
@@ -155,19 +159,20 @@ function editList() {
 };
 function clickEvent(a) {
     var testloc = $('#create_list').hasClass('active');
-
     if (toDoList['item' + a].done === false) {
         toDoList['item' + a].done = true;
+        $('.id'+a).replaceWith('<div onclick="clickEvent(' + a + ')" class="id'+a+' ico greenIco "></div>');
+        $('.edit'+a).replaceWith('<p onclick="showRename(' + a + ')" class="edit' + a + ' done_t card-text cardTask">' + toDoList["item" + a].task + '</p>');
     } else {
         toDoList['item' + a].done = false;
-        toDoList.set
+        $('.id'+a).replaceWith('<div onclick="clickEvent(' + a + ')" class="id'+a+' ico done "></div>');
+        $('.edit'+a).replaceWith('<p onclick="showRename(' + a + ')" class="edit' + a + ' card-text cardTask">' + toDoList["item" + a].task + '</p>');
     }
-    localStorage.setItem('toDoList', JSON.stringify(toDoList));
     if(testloc == true){
         refreshOutput();
-    }else{
-        editList();
     }
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+
 };
 /*finishes task*/
 function deleteClick(a) {
@@ -190,9 +195,7 @@ function deleteClick(a) {
 function showRename(a) {
     if ($(window).width() < 768) {
         $('.table').remove();
-        $('<textarea onkeypress="rename(event, ' + a + ')" class="input editV' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".edit" +a)
-    }else{
-        $('<td><input onkeypress="rename(event, ' + a + ')" class="input editV' + a + ' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30"></td>').replaceAll(".edit" + a);
+        $('<textarea onkeypress="rename(event, ' + a + ')" class="input editV' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".edit" +a);
     }
 }
 function rename(event, a) {
@@ -208,9 +211,14 @@ function rename(event, a) {
             return;
         }
 /*check if input field is empty */
-        toDoList['item' + a].task = value;
-        editList();
+    toDoList['item' + a].task = value;
     };
+    if ($(window).width() > 768) {
+        $('editV'+a).replaceWith('<input onkeypress="rename(event, '+a+')" class="editV'+a+' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30"></td>');
+/*this is work in progress, kinda works*/
+    }else{
+        editList();
+    }
 }
 /*Rename task*/
 function showSelect(i) {
@@ -240,7 +248,7 @@ function changeVal(i) {
 downloadBtn.click(function download() {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(toDoList)));
-    element.setAttribute('download', 'TodoList.');
+    element.setAttribute('download', 'TodoList.json');
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
