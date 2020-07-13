@@ -52,8 +52,18 @@
             </div>
             <div class="output" ></div>
             <section class="donwPage" id="downPage" style="display: none;">
-                <h2>Download page</h2>
-                <button  id="downloadList" class="btn btn-dark">Download list</button>
+                <div class="btn_panel">
+                    <button  id="downloadList" class="btn btn-dark">Download list</button>
+                    <div class="upload">
+                        <label class="btn btn-dark">
+                            Browse <input  type="file" id="selectFiles" hidden/>
+                        </label>
+                        <button id="import" class="btn btn-dark">Import</button>
+                    </div>
+                </div>
+                <div class="outputContainer">
+                    <p>Item is not selected</p>
+                </div>
             </section>
             <section class="aboutPage" id="aboutPage" style="display: none;">
                 <div class="card">

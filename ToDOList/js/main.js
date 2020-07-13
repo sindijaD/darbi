@@ -258,8 +258,36 @@ downloadBtn.click(function download() {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
-  });
+});
 /*download list */
+document.getElementById('import').onclick = function() {
+    var files = document.getElementById('selectFiles').files;
+    var reader = new FileReader();
+  reader.onload = function(e) { 
+    var result = JSON.parse(e.target.result);
+    toDoList = result;
+    localStorage.setItem('toDoList', JSON.stringify(result));
+    //var formatted = JSON.stringify(result, null, 2);
+  }
+  reader.readAsText(files.item(0));
+  $('.outputContainer div, h3').remove();
+  $('.outputContainer').html('<p>Item is not selected</p>');
+};
+/**upload file */
+$("#selectFiles").change(function() {
+    var files = document.getElementById('selectFiles').files;
+    var reader = new FileReader();
+  reader.onload = function(e) { 
+    var result = JSON.parse(e.target.result);
+    var formatted = JSON.stringify(result, null, 2);
+    $('.outputContainer').html('<div class="showList">'+formatted+'</div>');
+    $('<h3>Do you want to import this list?</h3>').insertBefore('.showList');
+  }
+  reader.readAsText(files.item(0));
+});
+/**show uploaded file content */
+
+
 $('#editList').click(function () {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
@@ -271,7 +299,6 @@ $('#editList').click(function () {
     }else{
         $('.output').html(noList);
     }
-
 });
 $('#create_list').click(function () {
     $('.nav-link').removeClass('active');
@@ -300,3 +327,15 @@ $('#AboutPage').click(function () {
     $('#aboutPage').show();
     refreshOutput();
 });
+/**nav menu */
+$('#downloadList').hover(function () {
+    var content = $('.list-group').clone(),
+        thisList ='<h3>Do you want to download this list.<h3><br>';
+    $('.outputContainer').html(content);
+    $(thisList).insertBefore('.list-group');
+}, function () {
+    $('.outputContainer .list-group, h3').remove();
+    $('.outputContainer').html('<p>Item is not selected</p>');
+    }
+);
+/**show what to download */
