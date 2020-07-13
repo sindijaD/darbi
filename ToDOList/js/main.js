@@ -141,13 +141,12 @@ function editList() {
         } else {
             doneClass = '';
             greenIco = 'done';
-
         }
         /*Determine if task is accomplished for mobile.*/
         outputMobile +=
-        '<div class="card border-secondary mb-3" style="max-width: 18rem;">'+
+        '<div class="card border-secondary mb-3">'+
             '<div class="card-header bg-light border-secondary"><div class="cardI">'+a+'#</div><div class="cardTime">'+toDoList["item" + a].taskCreated + ' ' + toDoList["item" + a].time + '</div></div>'+
-                '<div class="card-body text-dark"><p onclick="showRename(' + a + ')" class="edit' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>'+
+                '<div class="card-body text-dark"><p onclick="showRename(' + a + ')" class="editMob' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>'+
                 '<p onclick="showSelect(' + a + ')" class="type' + a + ' td">' + toDoList["item" + a].type + '</p>'+
             '</div>'+
             '<div class="card-footer bg-transparent border-secondary"><div onclick="clickEvent(' + a + ')" class="id'+a+' ico '+greenIco+'"></div><div onclick="deleteClick(' + a + ')" class="ico del"></div></div>'+
@@ -193,32 +192,38 @@ function deleteClick(a) {
 };
 /*delete task*/
 function showRename(a) {
-    if ($(window).width() < 768) {
-        $('.table').remove();
-        $('<textarea onkeypress="rename(event, ' + a + ')" class="input editV' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".edit" +a);
-    }
+        //remove and change editV 
+        $('<textarea onkeypress="rename(event, ' + a + ')" class="input editMob' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".editMob" +a);
 }
 function rename(event, a) {
-    var value = $('.editV' + a).val();
-    if ($(window).width() < 768) {
-        $('.table').remove();
-    }
-/*hides for moment desktop table ,because double inputs cant edit */
+    var valueD = $('.editV' + a).val(),
+        valueMob =$('.editMob' + a).val();
     var x = event.which;
     if (x == 13) {
-        if (value == "") {
+        if (valueD == "" && valueMob == "") {
             $('.overlay').css('display', 'flex');
             return;
         }
 /*check if input field is empty */
-    toDoList['item' + a].task = value;
+        if(window.innerWidth > 768 ){
+            toDoList['item' + a].task = valueD;
+        }else{
+            toDoList['item' + a].task = valueMob;
+        }
+
+            $('editV'+a).replaceWith('<input onkeypress="rename(event, '+a+')" class="editV'+a+' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30">');
+/*edit page output form desktop*/
+            if (toDoList['item' + a].done === true) {
+                doneClass = 'done_t';
+                greenIco = 'greenIco';
+            } else {
+                doneClass = '';
+                greenIco = 'done';
+            }
+            $('.editMob'+a).replaceWith('<p onclick="showRename(' + a + ')" class="editMob' + a + ' ' + doneClass + ' card-text cardTask">' + toDoList["item" + a].task + '</p>');
+            $('.id'+a).replaceWith('<div onclick="clickEvent(' + a + ')" class="id'+a+' ico '+greenIco+'"></div>');
+/**Output for device lesser the 768px screen  */
     };
-    if ($(window).width() > 768) {
-        $('editV'+a).replaceWith('<input onkeypress="rename(event, '+a+')" class="editV'+a+' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30"></td>');
-/*this is work in progress, kinda works*/
-    }else{
-        editList();
-    }
 }
 /*Rename task*/
 function showSelect(i) {
