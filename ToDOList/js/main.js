@@ -259,35 +259,80 @@ downloadBtn.click(function download() {
     element.click();
     document.body.removeChild(element);
 });
-/*download list */
-document.getElementById('import').onclick = function() {
+/*download list */$('#downloadList').hover(function () {
+        $('.noItem, .showList').hide();
+        $('.outputContainer .importpromt').hide();
+        var content = $('.list-group').clone(),
+        thisList ='<h3 class="downpromp">Do you want download this list.<h3>';
+        $('.outputContainer').append(content);
+        $(thisList).insertBefore('.list-group');
+    }, 
+    function () { 
+        $('.outputContainer .list-group').remove();
+        $('.downpromp').remove();
+        $('.noItem, .showList').show();
+        $('.outputContainer  .importpromt').show();
+        //problem with duplicate h3 
+    }
+);
+
+/**show what to download */
+function importList(){
     var files = document.getElementById('selectFiles').files;
-    var reader = new FileReader();
-  reader.onload = function(e) { 
-    var result = JSON.parse(e.target.result);
-    toDoList = result;
-    localStorage.setItem('toDoList', JSON.stringify(result));
-    //var formatted = JSON.stringify(result, null, 2);
-  }
-  reader.readAsText(files.item(0));
-  $('.outputContainer div, h3').remove();
-  $('.outputContainer').html('<p>Item is not selected</p>');
-};
-/**upload file */
-$("#selectFiles").change(function() {
+        var reader = new FileReader();
+        reader.onload = function(e) { 
+            var result = JSON.parse(e.target.result);
+            toDoList = result;
+            localStorage.setItem('toDoList', JSON.stringify(result));
+        }
+        reader.readAsText(files.item(0));
+        $('.outputContainer div, .contentHeader').remove();
+        $('.outputContainer').html('<p>Item is not selected</p>');
+}
+/**upload file function */
+$('#continueImport').click(function () {
+    importList();
+    $('.overlayDown').css('display','none');
+});
+/**continue file import */
+$('#cancelImport').click(function() { 
+    $('.overlayDown').css('display','none');
+});
+/**cancel import */
+$('#import').click(function () { 
+   if(Object.keys(toDoList).length > 0 ){
+       $('.overlayDown').css('display','flex');
+       
+   }else{
+       importList();        
+    };
+   }
+);
+/**check if list already exist ,if  it does then show warning */
+$('#DownPage').click(function () {
+    var files = document.getElementById('selectFiles').files;
+    if(files.length == 0){
+        $('#import').prop('disabled', true);
+    }else{
+        $('#import').prop('disabled', false);
+    }
+});
+/**disable import btn if file not selected */
+$("#selectFiles").on( "change",function showFileContent() {
     var files = document.getElementById('selectFiles').files;
     var reader = new FileReader();
   reader.onload = function(e) { 
     var result = JSON.parse(e.target.result);
     var formatted = JSON.stringify(result, null, 2);
     $('.outputContainer').html('<div class="showList">'+formatted+'</div>');
-    $('<h3>Do you want to import this list?</h3>').insertBefore('.showList');
+    $('<h3 class="importpromt">Do you want import this list?</h3>').insertBefore('.showList');
+    if(files.length > 0){
+        $('#import').prop('disabled', false);
+    }
   }
   reader.readAsText(files.item(0));
 });
 /**show uploaded file content */
-
-
 $('#editList').click(function () {
     $('.nav-link').removeClass('active');
     $('#editList').addClass('active');
@@ -328,14 +373,3 @@ $('#AboutPage').click(function () {
     refreshOutput();
 });
 /**nav menu */
-$('#downloadList').hover(function () {
-    var content = $('.list-group').clone(),
-        thisList ='<h3>Do you want to download this list.<h3><br>';
-    $('.outputContainer').html(content);
-    $(thisList).insertBefore('.list-group');
-}, function () {
-    $('.outputContainer .list-group, h3').remove();
-    $('.outputContainer').html('<p>Item is not selected</p>');
-    }
-);
-/**show what to download */
