@@ -4,7 +4,7 @@ if (localStorage.getItem('toDoList') == null) {
 } else {
     toDoList = JSON.parse(localStorage.getItem('toDoList'));
 }
-/*loading un converting string from local storage*/
+/**loading un converting string from local storage*/
 $('.table').hide();
 const addBtn = $('#addtask'),
     taskInput = $('#task'),
@@ -24,7 +24,7 @@ const addBtn = $('#addtask'),
         '</tr>' +
         '</thead>',
     noList = '<h2>There is no tasks in list<h2>' ;
-/*btn locations and inputs*/
+/**btn locations and inputs*/
 function refreshOutput() {
     var count = Object.keys(toDoList).length,
         outputContent = '',
@@ -36,7 +36,7 @@ function refreshOutput() {
         } else {
             doneClass = '';
         }
-        /*Determine if task is accomplished.*/
+        /**Determine if task is accomplished.*/
         outputContent +=
             '<li onclick="clickEvent('+i+')" class="list-group-item ' + doneClass + '">' + toDoList["item" + i].task + '</li>'
         i++;
@@ -173,7 +173,7 @@ function clickEvent(a) {
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
 
 };
-/*finishes task*/
+/**finishes task*/
 function deleteClick(a) {
     var count = Object.keys(toDoList).length;
     while (a <= count) {
@@ -190,7 +190,7 @@ function deleteClick(a) {
     }
 
 };
-/*delete task*/
+/**delete task*/
 function showRename(a) {
         //remove and change editV 
         $('<textarea onkeypress="rename(event, ' + a + ')" class="input editMob' + a +'" maxlength="30">' + toDoList['item' + a].task + '</textarea>').replaceAll(".editMob" +a);
@@ -204,15 +204,14 @@ function rename(event, a) {
             $('.overlay').css('display', 'flex');
             return;
         }
-/*check if input field is empty */
+/**check if input field is empty */
         if(window.innerWidth > 768 ){
             toDoList['item' + a].task = valueD;
         }else{
             toDoList['item' + a].task = valueMob;
         }
-
             $('editV'+a).replaceWith('<input onkeypress="rename(event, '+a+')" class="editV'+a+' "value="' + toDoList['item' + a].task + '" type="text" maxlength="30">');
-/*edit page output form desktop*/
+/**edit page output form desktop*/
             if (toDoList['item' + a].done === true) {
                 doneClass = 'done_t';
                 greenIco = 'greenIco';
@@ -225,7 +224,7 @@ function rename(event, a) {
 /**Output for device lesser the 768px screen  */
     };
 }
-/*Rename task*/
+/**Rename task*/
 function showSelect(i) {
     var selector = $('#taskType').clone();
     if ($(window).width() > 768) {
@@ -259,23 +258,35 @@ downloadBtn.click(function download() {
     element.click();
     document.body.removeChild(element);
 });
-/*download list */$('#downloadList').hover(function () {
-        $('.noItem, .showList').hide();
-        $('.outputContainer .importpromt').hide();
-        var content = $('.list-group').clone(),
-        thisList ='<h3 class="downpromp">Do you want download this list.<h3>';
+
+
+
+/**download list */
+var headingD = 'Do you want download this list',
+    headingNon = 'Item is not selected',
+    headingImport = 'Do you want to import this list?';
+
+$('#downloadList').hover(function () {
+        $('.noItem').text(headingD);
+        $('.showList').hide();
+        var content = $('.list-group').clone();
         $('.outputContainer').append(content);
-        $(thisList).insertBefore('.list-group');
+        $('.outputContainer .list-group').hide().slideDown(500);
     }, 
-    function () { 
-        $('.outputContainer .list-group').remove();
-        $('.downpromp').remove();
-        $('.noItem, .showList').show();
-        $('.outputContainer  .importpromt').show();
-        //problem with duplicate h3 
+    function () {
+        if(('.showList').length > 0){//check if import exist.
+            $('.noItem').text(headingImport);
+        }else{
+            $('.noItem').text(headingNon);
+        }
+        $('.outputContainer .list-group').slideUp(500);
+        setTimeout(function(){
+            $('.outputContainer .list-group').remove();
+            $('.showList').slideDown(500);
+            $('.outputContainer').slideDown(500);
+        }, 500);
     }
 );
-
 /**show what to download */
 function importList(){
     var files = document.getElementById('selectFiles').files;
@@ -286,8 +297,11 @@ function importList(){
             localStorage.setItem('toDoList', JSON.stringify(result));
         }
         reader.readAsText(files.item(0));
-        $('.outputContainer div, .contentHeader').remove();
-        $('.outputContainer').html('<p>Item is not selected</p>');
+        $('.outputContainer div').slideUp();
+        setTimeout(function(){
+            $('.outputContainer div').remove();
+        }, 500);
+         $('.noItem').text(headingNon);
 }
 /**upload file function */
 $('#continueImport').click(function () {
@@ -302,7 +316,6 @@ $('#cancelImport').click(function() {
 $('#import').click(function () { 
    if(Object.keys(toDoList).length > 0 ){
        $('.overlayDown').css('display','flex');
-       
    }else{
        importList();        
     };
@@ -323,9 +336,26 @@ $("#selectFiles").on( "change",function showFileContent() {
     var reader = new FileReader();
   reader.onload = function(e) { 
     var result = JSON.parse(e.target.result);
-    var formatted = JSON.stringify(result, null, 2);
-    $('.outputContainer').html('<div class="showList">'+formatted+'</div>');
-    $('<h3 class="importpromt">Do you want import this list?</h3>').insertBefore('.showList');
+    $('.showList').remove();
+
+    var nr = 1,
+    length = Object.keys(toDoList).length,
+    resultOutput = '';
+    while(nr < (length+1)){
+        if (result['item' + nr].done === true) {
+            doneClass = 'done_t';
+        } else {
+            doneClass = '';
+        };
+        resultOutput +=
+        '<li class="'+doneClass+'" >'+result["item" +nr ].task+'</li>';
+        nr++
+    };
+
+    $('.outputContainer').append('<div class="showList"><ul>'+resultOutput+'</ul></div>');
+    $('.showList').hide().slideDown(500);
+    $('.noItem').text(headingImport);
+
     if(files.length > 0){
         $('#import').prop('disabled', false);
     }

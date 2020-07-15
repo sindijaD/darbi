@@ -574,23 +574,32 @@ h3 {
   padding: 10px;
 }
 
-.donwPage .outputContainer h3, .donwPage .outputContainer h4 {
+.donwPage .outputContainer h3 {
   background-color: var(--dark);
   color: #fff;
   font-size: 20px;
   border-radius: 5px;
 }
 
-.donwPage .outputContainer .list-group {
+.donwPage .outputContainer .DownloadPromp {
+  display: none;
+}
+
+.donwPage .outputContainer .list-group, .donwPage .outputContainer ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  text-align: left;
 }
 
-.donwPage .outputContainer .list-group li {
+.donwPage .outputContainer .list-group li, .donwPage .outputContainer ul li {
   list-style: decimal;
   list-style-position: inside;
+}
+
+.donwPage .outputContainer .before {
+  display: none;
 }
 
 /*download Page*/

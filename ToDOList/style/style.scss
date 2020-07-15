@@ -348,19 +348,27 @@ h3 {
         border: 1px solid #dee2e6;
         border-radius: 5px;
         padding: 10px;
-        h3, h4{
+        h3{
             background-color: var(--dark);
             color: #fff;
             font-size: 20px;
             border-radius: 5px;
         }
-        .list-group{
+        .DownloadPromp{
+            display: none;
+        }
+        .list-group, ul{
             width: fit-content;
             margin: auto;
+            text-align: left;
             li{
                 list-style: decimal;
                 list-style-position: inside;
+                border
             }
+        }
+        .before{
+            display: none;
         }
     }
 }
