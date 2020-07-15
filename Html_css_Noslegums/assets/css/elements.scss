@@ -1,33 +1,8 @@
 ---
 ---
-$screen-md-min: 768px;
-$screen-lg-min: 1440px;
- // Medium devices
- @mixin md {
-    @media (min-width: #{$screen-md-min}) {
-        @content;
-    }
- }
- // Large devices
- @mixin lg {
-    @media (min-width: #{$screen-lg-min}) {
-        @content;
-    }
- }
-@mixin background {
-    background: center no-repeat;
-    background-size: contain;
-    display: block;
-}
-@mixin label_size {
-    width: 24px;
-    height: 24px;    
-}
-@mixin nav_font {
-    font-size: 12px;
-    text-align: center;
-    color: #FFFFFF;    
-}
+@import "global/variables";
+@import "global/mixins";
+
 .ico20{
     color: white;
     width: 20px;

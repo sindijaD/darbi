@@ -1,17 +1,8 @@
 ---
 ---
-$handheld: 786px;
-$desktop: 1440px;
-@mixin tablet {
-    @media (min-width: #{$handheld}) {
-        @content;
-    }
- }
- @mixin pc {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
- }
+@import "global/variables";
+@import "global/mixins";
+
 body{
     background: #CCCCCC;
     padding-bottom: 18px;
@@ -191,16 +182,9 @@ main{
         }
         .member_list{
             @include pc(){
-                display: -webkit-box;
-                display: -ms-flexbox;
                 display: flex;
-                -webkit-box-orient: horizontal;
-                -webkit-box-direction: normal;
-                    -ms-flex-direction: row;
-                        flex-direction: row;
-                -webkit-box-pack: center;
-                    -ms-flex-pack: center;
-                        justify-content: center;
+                flex-direction: row;
+                justify-content: center;
             }
             .member{
                 margin-bottom: 21px;
