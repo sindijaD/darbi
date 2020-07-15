@@ -259,7 +259,9 @@ downloadBtn.click(function download() {
     element.click();
     document.body.removeChild(element);
 });
-/*download list */$('#downloadList').hover(function () {
+
+/*download list */
+$('#downloadList').hover(function () {
         $('.noItem, .showList').hide();
         $('.outputContainer .importpromt').hide();
         var content = $('.list-group').clone(),
