@@ -479,7 +479,6 @@ $("#selectFiles").on(
         length = Object.keys(toDoList).length,
         resultOutput = "";
       while (nr < length + 1) {
-        console.log(nr);
         if (result["item" + nr].done == true) {
           doneClass = "done_t";
         } else {
