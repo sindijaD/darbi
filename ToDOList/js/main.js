@@ -472,14 +472,15 @@ $("#selectFiles").on(
     let files = document.getElementById("selectFiles").files;
     let reader = new FileReader();
     reader.onload = function (e) {
-      let result = JSON.parse(e.target.result);
+      var result = JSON.parse(e.target.result);
       $(".showList").remove();
 
-      let nr = 1,
+      var nr = 1,
         length = Object.keys(toDoList).length,
         resultOutput = "";
       while (nr < length + 1) {
-        if (result["item" + nr].done === true) {
+        console.log(nr);
+        if (result["item" + nr].done == true) {
           doneClass = "done_t";
         } else {
           doneClass = "";
