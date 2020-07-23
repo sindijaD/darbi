@@ -1,5 +1,5 @@
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/landig" # the subpath of your site, e.g. /blog
+baseurl: "/portfolioPage" # the subpath of your site, e.g. /blog
 title: "Landing" # the name of your site, e.g. ACME Corp.
 
 plugins:
@@ -7,6 +7,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
 sass:
   sass_dir: assets/css
   style: compressed
