@@ -1,39 +1,41 @@
+@import "global/variables";
+
 // Medium devices
 @mixin md {
-    @media (min-width: #{$screen-md-min}) {
-        @content;
-    }
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
 }
 // Large devices
 @mixin lg {
-    @media (min-width: #{$screen-lg-min}) {
-        @content;
-    }
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
 }
 
-// TODO: fix 
+// TODO: fix
 @mixin tablet {
-    @media (min-width: #{$handheld}) {
-        @content;
-    }
+  @media (min-width: #{$handheld}) {
+    @content;
+  }
 }
 @mixin pc {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
 @mixin background {
-    background: center no-repeat;
-    background-size: contain;
-    display: block;
+  background: center no-repeat;
+  background-size: contain;
+  display: block;
 }
 @mixin label_size {
-    width: 24px;
-    height: 24px;    
+  width: 24px;
+  height: 24px;
 }
 @mixin nav_font {
-    font-size: 12px;
-    text-align: center;
-    color: #FFFFFF;    
+  font-size: 12px;
+  text-align: center;
+  color: #ffffff;
 }

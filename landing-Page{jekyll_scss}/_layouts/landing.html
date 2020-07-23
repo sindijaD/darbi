@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <link rel="stylesheet" href="assets/css/{{ page.style }}.css">
     <title>{{ page.title }}</title>
+    {% feed_meta %}
+    {% seo %}
 </head>
 <body>
     <header>
