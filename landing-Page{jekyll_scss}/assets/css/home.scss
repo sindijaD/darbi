@@ -16,36 +16,17 @@ body {
   }
 }
 .sign_up {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ab47bc),
-    to(#7b1fa2)
-  );
-  background: -o-linear-gradient(left, #ab47bc 0%, #7b1fa2 100%);
   background: linear-gradient(90deg, #ab47bc 0%, #7b1fa2 100%);
-  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12),
-    0px 5px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);
   border-radius: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding-top: 32px;
   padding-bottom: 37px;
   max-width: 360px;
   width: 100%;
   margin: 0 auto;
-  -webkit-transform: translateY(110px);
-  -ms-transform: translateY(110px);
   transform: translateY(110px);
   @include tablet() {
     max-width: 314px;
@@ -60,15 +41,8 @@ body {
     margin-bottom: 36px;
   }
   .sign_up_soc {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 124px;
   }
@@ -76,15 +50,8 @@ body {
 .mail_login {
   background: #ffffff;
   border-radius: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding-top: 142px;
   padding-bottom: 36px;
@@ -106,25 +73,13 @@ body {
   }
   form {
     height: 241px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 85%;
 
     div {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
       flex-direction: row;
       input {
         border: none;
