@@ -1,0 +1,31 @@
+$screen-md-min: 768px;
+$screen-lg-min: 1440px;
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+// Medium devices
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+// Large devices
+
+@mixin background {
+  background: center no-repeat;
+  background-size: contain;
+  display: block;
+}
+@mixin label_size {
+  width: 24px;
+  height: 24px;
+}
+@mixin nav_font {
+  font-size: 12px;
+  text-align: center;
+  color: #ffffff;
+}

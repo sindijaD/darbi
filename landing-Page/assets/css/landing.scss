@@ -1,0 +1,283 @@
+---
+---
+
+@import "global/variables";
+@import "global/mixing";
+
+body {
+  background-image: url(../img/BG_landing_monbile.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #cccccc;
+  @include md() {
+    background-image: url(../img/BG_landing_tablet.jpg);
+  }
+  @include lg() {
+    background-image: url(../img/BG_landing_desktop.jpg);
+  }
+}
+.header_content {
+  padding: 112px 17px 74px 5px;
+  @include md() {
+    padding: 107px 18px 102px 14px;
+  }
+  @include lg() {
+    padding: 146px 712px 215px 122px;
+  }
+
+  .header_heading {
+    font-weight: 500;
+    font-size: 53.2px;
+    line-height: 62px;
+    color: #ffffff;
+  }
+  .header_desc {
+    font-size: 18.2px;
+    line-height: 21px;
+    color: #ffffff;
+    margin-bottom: 42px;
+  }
+  .video_play {
+    display: block;
+    background: #f44336;
+    box-shadow: 0px 2px 2px rgba(244, 67, 54, 0.14);
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 36px;
+    padding-right: 34px;
+    .play_ico {
+      background-image: url(../icon/ICON_PLAY.svg);
+      background-size: contain;
+      width: 15px;
+      height: 18px;
+    }
+    p {
+      line-height: 54px;
+      font-size: 14px;
+      color: #ffffff;
+      margin-left: 3px;
+    }
+  }
+}
+.mainContainer {
+  margin: 0 auto;
+  max-width: 1440px;
+  .landing {
+    background: #ffffff;
+    box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.14),
+      0px 8px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transform: translateY(-54px);
+    padding-top: 94px;
+    padding-bottom: 79px;
+    max-width: 1380px;
+    @include lg() {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .main_desc {
+      h2 {
+        font-size: 36.4px;
+        line-height: 43px;
+        color: #3c4858;
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        font-weight: 300;
+        font-size: 17.5px;
+        line-height: 21px;
+        text-align: center;
+        color: #999999;
+        max-width: 368px;
+        margin: 58px auto 162px auto;
+        @include md() {
+          max-width: 723px;
+        }
+      }
+    }
+    .features {
+      margin: 0 auto;
+      @include lg() {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 1108px;
+      }
+      .feature {
+        margin: 0 auto;
+        max-width: 328px;
+        margin-bottom: 108px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .ico70 {
+          margin: 0 auto;
+        }
+        .feature_heading {
+          margin-top: 31px;
+          margin-bottom: 18px;
+          text-align: center;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 23px;
+          text-align: center;
+          color: #3c4858;
+        }
+        .feature_desc {
+          text-align: center;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 16px;
+          text-align: center;
+          color: #999999;
+        }
+      }
+    }
+    .our_team_section {
+      margin-bottom: 185px;
+      .our_team_header {
+        text-align: center;
+        font-size: 36.4px;
+        line-height: 43px;
+        color: #3c4858;
+        margin-bottom: 86px;
+      }
+      .member_list {
+        @include lg() {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+        .member {
+          margin-bottom: 21px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .member_avatar {
+            box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.3),
+              0px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            height: 170px;
+            width: 170px;
+            margin: 0 auto;
+            margin-bottom: 32px;
+          }
+          .member_name {
+            text-align: center;
+            font-weight: 500;
+            font-size: 18.2px;
+            line-height: 21px;
+            color: #3c4858;
+            margin-bottom: 7px;
+          }
+          .member_position {
+            text-align: center;
+            font-weight: 500;
+            font-size: 13.65px;
+            line-height: 16px;
+            color: #777777;
+            margin-bottom: 34px;
+          }
+          .member_desc {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            color: #999999;
+            margin-left: 18px;
+            margin-right: 15px;
+            margin-bottom: 30px;
+            max-width: 713px;
+            @include lg() {
+              width: 352px;
+            }
+            a {
+              color: #9c27b0;
+            }
+          }
+          .member_social_links {
+            width: 120px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-self: center;
+          }
+        }
+      }
+    }
+    .contact_us {
+      max-width: 751px;
+      margin: 0 auto;
+      .contact_us_heading {
+        text-align: center;
+        font-size: 36.4px;
+        line-height: 43px;
+        color: #3c4858;
+        margin-bottom: 37px;
+      }
+      .contact_us_desc {
+        font-weight: 300;
+        font-size: 18.2px;
+        line-height: 21px;
+        text-align: center;
+        color: #999999;
+      }
+      form {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        @include lg() {
+          display: block;
+        }
+        input {
+          margin-top: 50px;
+          border: none;
+          border-bottom: solid 1px #d2d2d2;
+        }
+        input[placeholder="Your Name"] {
+          @include lg() {
+            justify-self: left;
+            width: 49%;
+            display: inline-block;
+          }
+        }
+        input[placeholder="Your Email"] {
+          @include lg() {
+            justify-self: right;
+            display: inline-block;
+            width: 49%;
+          }
+        }
+        input[placeholder="Your Message"] {
+          height: 80px;
+          @include lg() {
+            width: 100%;
+          }
+        }
+        .send {
+          margin-top: 24px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+        }
+      }
+    }
+    .footer_links a,
+    p {
+      color: #333333;
+    }
+  }
+}
+.footer {
+  .footer_links a,
+  p {
+    color: #333333;
+  }
+}
