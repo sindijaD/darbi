@@ -8,12 +8,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
+  height: 100%;
+  margin: 0;
   @include md() {
     background-image: url(../img/BG_signup_tablet.jpg);
   }
   @include lg() {
     background-image: url(../img/BG_signup_desktop.jpg);
   }
+}
+.login {
+  opacity: 0;
 }
 .sign_up {
   background: linear-gradient(90deg, #ab47bc 0%, #7b1fa2 100%);
@@ -96,4 +101,41 @@ body {
       line-height: 16px;
     }
   }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 10%;
+  }
+  20% {
+    opacity: 20%;
+  }
+  30% {
+    opacity: 30%;
+  }
+  40% {
+    opacity: 40%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  60% {
+    opacity: 60%;
+  }
+  70% {
+    opacity: 70%;
+  }
+  80% {
+    opacity: 80%;
+  }
+  90% {
+    opacity: 90%;
+  }
+}
+.appear {
+  animation-name: appear;
+  animation-delay: 1s;
+  animation-duration: 2s;
 }

@@ -73,6 +73,15 @@ form > div {
     background-image: url(../icon/lock.svg);
   }
 }
+html {
+  height: 100%;
+}
+input,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
 /*navigation style*/
 .tim {
   margin-left: 15px;
@@ -124,15 +133,16 @@ form > div {
     }
     .nav_menu_dropdown {
       display: none;
-      position: relative;
       flex-direction: column;
       float: right;
       transform: translateY(+14px);
+      padding: 10px 10px 0;
       @include md() {
         display: flex;
         flex-direction: row;
         position: unset;
         float: unset;
+        padding: 0;
       }
       a,
       div {
@@ -176,14 +186,14 @@ form > div {
 }
 /*footer style*/
 .footer {
-  margin: 0 auto;
   max-width: 1140px;
-  bottom: 27px;
+  padding-bottom: 27px;
+  margin: 0 auto;
   @include lg() {
-    margin-bottom: 33px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 33px;
   }
   .footer_links {
     margin-left: 29px;
@@ -312,4 +322,31 @@ form > div {
 }
 .user3 {
   background-image: url(../img/user3.jpg);
+}
+
+.videoMenu {
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(38, 42, 46, 0.637);
+  width: 100%;
+  height: 100%;
+  .closeBtn {
+    margin-right: 5%;
+    margin-left: auto;
+    margin-bottom: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../icon/close-cross.svg);
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+  }
+  iframe {
+    width: 90%;
+    height: 90%;
+  }
 }
