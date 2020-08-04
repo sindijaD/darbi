@@ -26,6 +26,6 @@ function Content(props) {
     </>
   );
 }
-const PropsSec = <Content Text="Prop leaning">someday</Content>;
+const PropsSec = <Content Text="Prop leaning"></Content>;
 
 export default PropsSec;

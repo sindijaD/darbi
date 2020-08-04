@@ -31,7 +31,7 @@ function persona(name, lastName, age) {
 let austris = new persona("Austris", "Daugulis", 29);
 
 austris.language = "Latvian";
-console.log(austris);
+//console.log(austris);
 //austris.gender("male");
 //ja nav pievienota vērtība jaizvada kā funkcija lai izvadi
 let cipars = new Number(12);
@@ -46,6 +46,6 @@ class car {
   }
 }
 austrisCar = new car("Lamborghini", "sportsCar", "V12");
-console.log(austrisCar);
+//console.log(austrisCar);
 
-testOutput.innerHTML = "sada " + austrisCar.carOwner("austris");
+//testOutput.innerHTML = "sada " + austrisCar.carOwner("austris");
