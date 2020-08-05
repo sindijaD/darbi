@@ -15,7 +15,7 @@ const CountLetters = (chosenContent) => {
 
 function updateTime() {
   document.getElementById("timeDisplay").innerHTML = TimeNOw();
-  //not a react guru wey of doing thinks
+  //not a react guru wey of doing thinks (change)
 }
 
 function testFiled() {
