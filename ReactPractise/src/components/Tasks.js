@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-var taskStorage = [];
+const taskStorage = [];
+const UlClass = "UlClass";
 
 class Tasks extends Component {
   constructor(props) {
@@ -8,35 +9,42 @@ class Tasks extends Component {
     this.state = { TaskValue: "" };
     this.fileRef = React.createRef();
   }
-  myChangeHandler = (event) => {
-    console.log(event.target.value);
-    this.setState({ TaskValue: event.target.value });
-    event.preventDefault();
-  };
   AddTask = () => {
     let inputValue = this.state.TaskValue;
     if (inputValue === "") return;
     taskStorage.push(inputValue);
     this.setState(taskStorage);
-    this.fileRef.current.value = "";
-    inputValue = "";
     console.log(taskStorage);
   };
+  myChangeHandler = (event) => {
+    if (event.which === 13) {
+      this.AddTask();
+      this.setState({ TaskValue: event.target.value });
+      console.log();
+
+      event.preventDefault();
+    }
+  };
+  inputField = () => {
+    return (
+      <input
+        type="text"
+        name="taskInput"
+        id="taskInput"
+        placeholder="Write task here"
+        onKeyDown={this.myChangeHandler}
+      />
+    );
+  };
+
   render() {
     return (
       <div>
         <label htmlFor="taskInput">
-          <input
-            type="text"
-            name="taskInput"
-            id="taskInput"
-            ref={this.fileRef}
-            placeholder="Write task here"
-            onChange={this.myChangeHandler}
-          />
+          {this.inputField()}
           <button onClick={this.AddTask}>Create task</button>
         </label>
-        <ul>
+        <ul className={UlClass}>
           {taskStorage.map((value, index) => (
             <li key={index}>{value}</li>
           ))}

@@ -47,10 +47,29 @@ main {
     }
   }
   .definedContent {
+    max-width: 500px;
+    width: 90%;
     border: 2px solid $secondLithe;
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
+
+    .smallContainer {
+      width: 100%;
+      text-align: center;
+      background-color: $secondLithe;
+      line-height: 20px;
+      border-radius: 5px;
+      padding: 2px;
+    }
+    p {
+      text-align: center;
+    }
+    .UlClass {
+      margin: 10px 5%;
+      list-style: circle;
+      list-style-position: inside;
+    }
   }
 }
 footer {
