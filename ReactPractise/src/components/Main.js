@@ -3,8 +3,9 @@ import Members from "./Members";
 import Tasks from "./Tasks";
 import testFiled from "./testFiled";
 import PropsSec from "./PropsSec";
+import inputs from './inputs'
 
-const Main = () => {
+const Main = (props) => {
   const [ResourceType, setResourceType] = useState("post");
   useEffect(() => {}, [ResourceType]);
 
@@ -16,8 +17,10 @@ const Main = () => {
         <button onClick={() => setResourceType("About")}>About</button>
         <button onClick={() => setResourceType(testFiled)}>testFiled</button>
         <button onClick={() => setResourceType(PropsSec)}>Props</button>
+        <button onClick={() => setResourceType(inputs)}>inputs</button>
       </nav>
       <section className="definedContent">{ResourceType}</section>
+  <section className="definedContent">{props.children}</section>
     </main>
   );
 };
