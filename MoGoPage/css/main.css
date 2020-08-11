@@ -1,0 +1,658 @@
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-normal;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kaushan-Script;
+  src: url(../fonts/Kaushan_Script/KaushanScript-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+/*elements with same style*/
+h2 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  white-space: nowrap;
+  font-family: Montserrat-Bold;
+  font-weight: bold;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #333333;
+  font-size: 30px;
+  line-height: 37px;
+  margin-bottom: 39px;
+}
+
+.headerDesc {
+  font-family: Kaushan-Script;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 35px;
+  color: #333333;
+  margin-bottom: 9px;
+}
+
+.decorLine {
+  width: 62px;
+  height: 5px;
+  background-color: #F38181;
+  margin-bottom: 35px;
+}
+
+header {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1212px;
+  left: 0;
+  right: 0;
+  top: 15px;
+  margin: auto auto;
+}
+
+header h1 {
+  font-family: Montserrat-Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 37px;
+  color: #fff;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 36px;
+}
+
+header nav a {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  font-family: Montserrat-normal;
+  margin-right: 28px;
+  padding-bottom: 11px;
+  border-bottom: solid 5px transparent;
+}
+
+header nav a:hover {
+  border-bottom: solid 5px #FCE38A;
+}
+
+header nav .shoppingCart {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: block;
+  background-image: url(../ico/shoppingCart.svg);
+  width: 20px;
+  height: 20px;
+}
+
+header nav .shoppingCart:hover {
+  border-bottom: solid 5px transparent;
+}
+
+header nav .searchIco {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../ico/SearchIco.svg);
+  width: 20px;
+  height: 20px;
+}
+
+header nav .searchIco:hover {
+  border-bottom: solid 5px transparent;
+}
+
+.welcome {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), #FCE38A;
+  background: linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), #FCE38A;
+  padding-top: 213px;
+  padding-bottom: 28px;
+  width: 100%;
+}
+
+.welcome .welcomeCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.welcome .welcomeCenter h2 {
+  font-family: Kaushan-Script;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.welcome .welcomeCenter p {
+  margin: 0 auto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  font-family: Montserrat-normal;
+  font-weight: bolder;
+  font-size: 150px;
+  line-height: 140px;
+  width: 100%;
+  max-width: 842px;
+  text-align: center;
+}
+
+.welcome .welcomeCenter button {
+  margin-top: 170px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  font-family: Montserrat-normal;
+  font-weight: bold;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #FFF;
+  background-color: transparent;
+  color: #fff;
+  line-height: 42px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 155px;
+}
+
+.welcome .welcomeCenter .navElements {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  max-width: 1212px;
+}
+
+.welcome .welcomeCenter .navElements .element {
+  width: 100%;
+  max-width: 282px;
+  border-top: 5px solid #fff;
+  padding-top: 12px;
+}
+
+.welcome .welcomeCenter .navElements .element p {
+  text-align: left;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  line-height: 29px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.welcome .welcomeCenter .navElements .element p span {
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.AboutUs {
+  padding-top: 90px;
+  margin-bottom: 107px;
+}
+
+.AboutUs .AboutUsHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.AboutUs .AboutUsHeader p:last-of-type {
+  text-align: center;
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  color: #999999;
+  font-size: 15px;
+  line-height: 24px;
+  max-width: 984px;
+  width: 100%;
+}
+
+.AboutUs .aboutElements {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1222px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 107px;
+}
+
+.AboutUs .aboutElements .aboutElement {
+  height: 252px;
+  width: 382px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.AboutUs .aboutElements .EL1 {
+  background-image: url(../img/abouJPG1.jpg);
+  -webkit-box-shadow: 10px 10px #95E1D3;
+          box-shadow: 10px 10px #95E1D3;
+  -webkit-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px);
+}
+
+.AboutUs .aboutElements .EL1 .EL1Overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: inherit;
+  height: inherit;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), rgba(252, 227, 138, 0.05);
+  background: linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), rgba(252, 227, 138, 0.05);
+}
+
+.AboutUs .aboutElements .EL1 .EL1Overlay .teamIco {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../ico/team.svg);
+  width: 35px;
+  height: 26px;
+  margin-bottom: 2px;
+}
+
+.AboutUs .aboutElements .EL1 .EL1Overlay p {
+  font-family: Montserrat-Bold;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.AboutUs .aboutElements .EL2 {
+  background-image: url(../img/abouJPG2.jpg);
+  background-size: cover;
+}
+
+.AboutUs .aboutElements .EL3 {
+  background-image: url(../img/abouJPG3.jpg);
+  background-size: cover;
+}
+
+.companyStatistic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #95E1D3;
+  width: 100%;
+  height: 273px;
+  margin-bottom: 97px;
+}
+
+.companyStatistic .Stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 240px;
+  width: 100%;
+  height: 100%;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.companyStatistic .Stat:last-of-type {
+  border-right: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.companyStatistic .Stat p:nth-child(1) {
+  font-family: Montserrat-Bold;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 88px;
+  color: #FFF;
+}
+
+.companyStatistic .Stat p:nth-child(2) {
+  font-family: Montserrat-normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+}
+
+.workIco {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.clock {
+  background-image: url(../ico/clock.svg);
+}
+
+.design {
+  background-image: url(../ico/designe.svg);
+}
+
+.Creativity {
+  background-image: url(../ico/creativity.svg);
+}
+
+.SEO {
+  background-image: url(../ico/seo.svg);
+}
+
+.cssHtml {
+  background-image: url(../ico/csssHtml.svg);
+}
+
+.digital {
+  background-image: url(../ico/digital.svg);
+}
+
+.Work {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 120px;
+}
+
+.Work .workTech {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.Work .workTech .workElement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0 30px 50px 30px;
+}
+
+.Work .workTech .workElement .workDsc {
+  padding-left: 25px;
+}
+
+.Work .workTech .workElement .workDsc h3 {
+  font-family: Montserrat-normal;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.Work .workTech .workElement .workDsc p {
+  font-family: Roboto-Regular;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+  max-width: 270px;
+}
+
+.designsSection {
+  margin: 0 auto;
+  height: 852px;
+  max-width: 1922px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../img/BG-design.jpg);
+  background-size: cover;
+  margin-bottom: 100px;
+}
+
+.designsSection .whiteOverlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: inherit;
+  height: inherit;
+}
+
+.service {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 1922px;
+  margin: 0 auto;
+}
+
+.service .serviceDesc {
+  font-family: Roboto-Regular;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+  max-width: 994px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.service .serviceContent {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.service .serviceContent .serviceVisualPhoto {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../img/serviceContent.jpg);
+  background-size: cover;
+  width: 48%;
+  height: 397px;
+}
+
+.service .serviceContent .whatWeDO {
+  width: 48%;
+  height: 397px;
+  background-color: #95E1D3;
+}
+
+.service .serviceCarousel {
+  height: 292px;
+  max-width: 1920px;
+  width: 100%;
+  background-color: #F8F8F8;
+  margin-bottom: 100px;
+}
+/*# sourceMappingURL=main.css.map */

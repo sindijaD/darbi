@@ -1,0 +1,388 @@
+@import "variables";
+
+
+
+/*elements with same style*/
+h2{
+    @include textFont;
+    white-space: nowrap;
+    font-family: Montserrat-Bold;
+    font-weight: bold;
+    width: fit-content;
+    color: $mainBlack;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 39px;
+}
+.headerDesc{
+    @include KaushanFont;
+    font-size: 24px;
+    line-height: 35px;
+    color: $mainBlack;
+    margin-bottom: 9px;
+}
+.decorLine{
+    width: 62px;
+    height: 5px;
+    background-color: $darkOrange;
+    margin-bottom: 35px;
+}
+
+
+
+header{
+    position: absolute;
+    @include FlexRow;
+    justify-content: space-between;
+    max-width: 1212px;
+    left: 0;
+    right: 0;
+    top: 15px;
+    margin: auto auto;
+        h1{
+        font-family: Montserrat-Bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 37px;
+        color: #fff;
+    }
+    nav{
+        @include FlexRow;
+        margin-top: 36px;
+       a{ 
+           @include textFont;
+           font-family: Montserrat-normal;
+           margin-right: 28px;
+           padding-bottom: 11px;
+           border-bottom: solid 5px transparent;
+           &:hover{
+               border-bottom: solid 5px $mainOrange;
+           }
+        }
+        .shoppingCart{
+            @include Background;
+            display: block;
+            background-image: url(../ico/shoppingCart.svg);
+            width: 20px;
+            height: 20px;
+            &:hover{
+                border-bottom: solid 5px transparent;
+            }
+        }
+        .searchIco{
+            display: block;
+            @include Background;
+            background-image: url(../ico/SearchIco.svg);
+            width: 20px;
+            height: 20px;
+            &:hover{
+                border-bottom: solid 5px transparent;
+            }
+        }
+    }
+}
+.welcome{
+    background: $myGradient;
+    padding-top: 213px;
+    padding-bottom: 28px;
+    width: 100%;
+    .welcomeCenter{
+        @include FlexColon;
+        align-items: center;
+        h2{
+            @include KaushanFont;
+            font-size: 72px;
+            line-height: 30px;
+            color: #fff;
+        }
+        p{
+            margin: 0 auto;
+            @include textFont;
+            font-family: Montserrat-normal;
+            font-weight: bolder;
+            font-size: 150px;
+            line-height: 140px;
+            width: 100%;
+            max-width: 842px;
+            text-align: center;
+        }
+        button{
+            margin-top: 170px;
+            @include textFont;
+            font-family: Montserrat-normal;
+            font-weight: bold;
+            box-sizing: border-box;
+            border: 3px solid #FFF;
+            background-color:  transparent;
+            color: #fff;
+            line-height: 42px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: fit-content;
+            margin-bottom: 155px;
+
+        }
+        .navElements{
+            @include FlexRow;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1212px;
+            .element{
+                width: 100%;
+                max-width: 282px;
+                border-top: 5px solid #fff;
+                padding-top: 12px;
+                p{
+                    text-align: left;
+                    @include textFont;
+                    line-height: 29px;
+                    font-size: 18px;
+                    font-weight: normal;
+                    span{
+                        font-weight: bolder;
+                        font-size: 24px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+.AboutUs{
+    padding-top:90px;
+    margin-bottom: 107px;
+    .AboutUsHeader{
+        @include FlexColon;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 100px;
+        p:last-of-type{
+            text-align: center;
+            font-family:Roboto-Regular;
+            font-style: normal;
+            font-weight: normal;
+            color: $textGrey;
+            font-size: 15px;
+            line-height: 24px;
+            max-width: 984px;
+            width: 100%;
+        }
+    }
+    .aboutElements{
+        @include FlexRow;
+        margin: 0 auto;
+        justify-content: space-between;
+        max-width: 1222px;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 107px;
+  
+        .aboutElement{
+            height: 252px;
+            width: 382px;
+            @include  Background;
+        }
+      
+        .EL1{
+            background-image: url(../img/abouJPG1.jpg);
+            box-shadow: 10px 10px  $elementBlue;
+            transform: translate(-10px,-10px);
+            .EL1Overlay{
+                @include FlexColon;
+                align-items: center;
+                width:inherit;
+                height: inherit;
+                background:linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.90) 100%), rgba(252, 227, 138, 0.05);
+                .teamIco{
+                    @include Background;
+                    background-image: url(../ico/team.svg);
+                    width: 35px;
+                    height: 26px;
+                    margin-bottom: 2px;
+                }
+                p{
+                    font-family: Montserrat-Bold;
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #fff;
+                }
+            }
+        }
+        .EL2{
+            background-image: url(../img/abouJPG2.jpg);
+            background-size: cover;
+        }
+        .EL3{
+            background-image: url(../img/abouJPG3.jpg);
+            background-size: cover;
+
+        }
+       
+    }
+}
+.companyStatistic{
+    @include FlexRow;
+    justify-content: center;
+    background-color: $elementBlue;
+    width: 100%;
+    height: 273px;
+    margin-bottom: 97px;
+    .Stat{
+        @include FlexColon;
+        align-items: center;
+        max-width: 240px;
+        width: 100%;
+        height: 100%;
+        border-left:4px solid rgba(255, 255, 255, 0.3);
+        &:last-of-type{
+            border-right:4px solid rgba(255, 255, 255, 0.3);
+        }
+        p:nth-child(1){
+            font-family: Montserrat-Bold;
+            font-weight: bold;
+            font-size: 72px;
+            line-height: 88px;
+            color: #FFF;
+        }
+        p:nth-child(2){
+            font-family: Montserrat-normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            color: #FFF;
+        }
+    }
+}
+
+.workIco{
+    width: 30px;
+    height: 30px;
+    @include Background;
+}
+.clock{
+    background-image: url(../ico/clock.svg);
+}
+.design{
+    background-image: url(../ico/designe.svg);
+}
+.Creativity{
+    background-image: url(../ico/creativity.svg);
+}
+.SEO{
+    background-image: url(../ico/seo.svg);
+}
+.cssHtml{
+    background-image: url(../ico/csssHtml.svg);
+}
+.digital{
+    background-image: url(../ico/digital.svg);
+}
+
+.Work{
+    @include FlexColon;
+    align-items: center;
+    padding-bottom: 120px;
+    .workTech{
+        @include FlexRow;
+        max-width: 1200px;
+        width: 100%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+        .workElement{
+            @include FlexRow;
+            align-items: flex-start;
+            padding: 0 30px 50px 30px;
+
+            .workDsc{
+                padding-left: 25px;
+                h3{
+                    font-family: Montserrat-normal;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 17px;
+                    color: $mainBlack;
+                    margin-bottom: 10px;
+                }
+                p{
+                    font-family:Roboto-Regular;
+                    font-weight: normal;
+                    font-size: 15px;
+                    line-height: 24px;
+                    color: $textGrey;
+                    max-width: 270px;
+                }
+            }
+        }
+    }
+}
+.designsSection{
+    margin: 0 auto;
+    height: 852px;
+    max-width: 1922px;
+    width: 100%;
+    @include Background;
+    background-image: url(../img/BG-design.jpg);
+    background-size: cover;
+    margin-bottom: 100px;
+    .whiteOverlay{
+        @include FlexColon;
+        padding-top: 100px;
+        align-items: center;
+        justify-content: start;
+        background-color: rgba(255, 255, 255, 0.85);
+        width: inherit;
+        height: inherit;
+    }
+}
+.service{
+    @include FlexColon;
+    align-items: center;
+    width: 100%;
+    max-width: 1922px;
+    margin: 0 auto;
+    .serviceDesc{
+        font-family:Roboto-Regular;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 24px;
+        color: $textGrey;
+        max-width: 994px;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+    .serviceContent{
+        margin: 0 auto;
+        @include FlexRow;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        margin-bottom: 100px;
+        .serviceVisualPhoto{
+            @include Background;
+            background-image: url(../img/serviceContent.jpg);
+            background-size: cover;
+            width: 48%;
+            height: 397px;
+        }
+        .whatWeDO{
+            width: 48%;
+            height: 397px;
+            background-color: $elementBlue;
+        }
+        
+    }
+    .serviceCarousel{
+        height: 292px;
+        max-width: 1920px;
+        width: 100%;
+        background-color: $liteShade;
+        margin-bottom: 100px;
+    }
+
+}
+    

@@ -1,0 +1,52 @@
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: Montserrat-normal;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+  }
+@font-face {
+font-family: Kaushan-Script;
+src: url(../fonts/Kaushan_Script/KaushanScript-Regular.ttf);
+}
+@font-face {
+    font-family:Roboto-Regular;
+    src :url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+$mainOrange:#FCE38A;
+$mainBlack:#333333;
+$darkOrange:#F38181;
+$textGrey:#999999;
+$elementBlue:#95E1D3;
+$liteShade:#F8F8F8;
+$myGradient:linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), #FCE38A;
+
+@mixin textFont {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+}
+@mixin KaushanFont {
+    font-family: Kaushan-Script;
+    font-style: normal;
+    font-weight: normal;
+}
+@mixin FlexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+@mixin FlexColon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@mixin Background {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
