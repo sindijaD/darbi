@@ -14,6 +14,10 @@ src: url(../fonts/Kaushan_Script/KaushanScript-Regular.ttf);
     font-family:Roboto-Regular;
     src :url(../fonts/Roboto/Roboto-Regular.ttf);
 }
+@font-face {
+    font-family:Roboto-Italic;
+    src :url(../fonts/Roboto/Roboto-Italic.ttf);
+}
 
 $mainOrange:#FCE38A;
 $mainBlack:#333333;
@@ -21,7 +25,7 @@ $darkOrange:#F38181;
 $textGrey:#999999;
 $elementBlue:#95E1D3;
 $liteShade:#F8F8F8;
-$myGradient:linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), #FCE38A;
+$myGradient:linear-gradient( #f38181e6,#fce38ae6 );
 
 @mixin textFont {
     font-style: normal;

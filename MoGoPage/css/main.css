@@ -18,6 +18,11 @@
   src: url(../fonts/Roboto/Roboto-Regular.ttf);
 }
 
+@font-face {
+  font-family: Roboto-Italic;
+  src: url(../fonts/Roboto/Roboto-Italic.ttf);
+}
+
 /*elements with same style*/
 h2 {
   font-style: normal;
@@ -52,6 +57,19 @@ h2 {
   height: 5px;
   background-color: #F38181;
   margin-bottom: 35px;
+}
+
+.sectionDesc {
+  text-align: center;
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  color: #999999;
+  font-size: 15px;
+  line-height: 24px;
+  max-width: 984px;
+  width: 100%;
+  padding-bottom: 100px;
 }
 
 header {
@@ -144,8 +162,8 @@ header nav .searchIco:hover {
 }
 
 .welcome {
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), #FCE38A;
-  background: linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), #FCE38A;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f38181e6), to(#fce38ae6));
+  background: linear-gradient(#f38181e6, #fce38ae6);
   padding-top: 213px;
   padding-bottom: 28px;
   width: 100%;
@@ -277,19 +295,6 @@ header nav .searchIco:hover {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  margin-bottom: 100px;
-}
-
-.AboutUs .AboutUsHeader p:last-of-type {
-  text-align: center;
-  font-family: Roboto-Regular;
-  font-style: normal;
-  font-weight: normal;
-  color: #999999;
-  font-size: 15px;
-  line-height: 24px;
-  max-width: 984px;
-  width: 100%;
 }
 
 .AboutUs .aboutElements {
@@ -346,8 +351,8 @@ header nav .searchIco:hover {
           align-items: center;
   width: inherit;
   height: inherit;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), rgba(252, 227, 138, 0.05);
-  background: linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), rgba(252, 227, 138, 0.05);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f38181e6), to(#fce38ae6));
+  background-image: linear-gradient(#f38181e6, #fce38ae6);
 }
 
 .AboutUs .aboutElements .EL1 .EL1Overlay .teamIco {
@@ -601,17 +606,6 @@ header nav .searchIco:hover {
   margin: 0 auto;
 }
 
-.service .serviceDesc {
-  font-family: Roboto-Regular;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 24px;
-  color: #999999;
-  max-width: 994px;
-  text-align: center;
-  margin-bottom: 100px;
-}
-
 .service .serviceContent {
   margin: 0 auto;
   display: -webkit-box;
@@ -654,5 +648,209 @@ header nav .searchIco:hover {
   width: 100%;
   background-color: #F8F8F8;
   margin-bottom: 100px;
+}
+
+.memberPhoto {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.MatthewPhoto {
+  background-image: url(../img/member1.jpg);
+  background-position: left;
+}
+
+.ChristopherPhoto {
+  background-image: url(../img/member2.jpg);
+}
+
+.MichaelPhoto {
+  background-image: url(../img/member3.jpg);
+}
+
+.socIco {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 58px;
+  height: 58px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-size: 50%;
+}
+
+.facebook {
+  background-image: url(../ico/facebook.svg);
+  background-size: 25%;
+}
+
+.facebook:hover {
+  background-color: #F38181;
+  background-image: url(../ico/facebook-hover.svg);
+}
+
+.twitter {
+  background-image: url(../ico/twitter.svg);
+}
+
+.twitter:hover {
+  background-color: #F38181;
+  background-image: url(../ico/twitter-hover.svg);
+}
+
+.pinterest {
+  background-image: url(../ico/pinterest.svg);
+}
+
+.pinterest:hover {
+  background-color: #F38181;
+  background-image: url(../ico/pinterest-hover.svg);
+}
+
+.instagram {
+  background-image: url(../ico/instagram.svg);
+}
+
+.instagram:hover {
+  background-color: #F38181;
+  background-image: url(../ico/instagram-hover.svg);
+}
+
+.teamSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.teamSection .teamMembers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-bottom: 116px;
+  max-width: 1220px;
+  width: 100%;
+}
+
+.teamSection .teamMembers .member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.teamSection .teamMembers .member .memberPhoto {
+  width: 382px;
+  height: 472px;
+  background-color: #95E1D3;
+  margin-bottom: 10px;
+}
+
+.teamSection .teamMembers .member .memberPhoto .memberOverlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  width: inherit;
+  height: inherit;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f38181e6), to(#fce38ae6));
+  background: linear-gradient(#f38181e6, #fce38ae6);
+}
+
+.teamSection .teamMembers .member .memberPhoto .memberOverlay .memberSocial {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #FCE38A;
+}
+
+.teamSection .teamMembers .member .memberPhoto:hover .memberOverlay {
+  opacity: 1;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.teamSection .teamMembers .member .memberPhoto:hover {
+  -webkit-box-shadow: 10px 10px #95E1D3;
+          box-shadow: 10px 10px #95E1D3;
+}
+
+.teamSection .teamMembers h3 {
+  font-family: Montserrat-normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+.teamSection .teamMembers p {
+  font-family: Roboto-Italic;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+}
+
+.teamSection .teamAwards {
+  width: 100%;
+  background-color: #F8F8F8;
+  height: 252px;
 }
 /*# sourceMappingURL=main.css.map */

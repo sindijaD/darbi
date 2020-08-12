@@ -28,6 +28,19 @@ h2{
     margin-bottom: 35px;
 }
 
+.sectionDesc{
+    text-align: center;
+    font-family:Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    color: $textGrey;
+    font-size: 15px;
+    line-height: 24px;
+    max-width: 984px;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
 
 
 header{
@@ -121,7 +134,6 @@ header{
             padding-right: 20px;
             width: fit-content;
             margin-bottom: 155px;
-
         }
         .navElements{
             @include FlexRow;
@@ -156,18 +168,6 @@ header{
         @include FlexColon;
         align-items: center;
         text-align: center;
-        margin-bottom: 100px;
-        p:last-of-type{
-            text-align: center;
-            font-family:Roboto-Regular;
-            font-style: normal;
-            font-weight: normal;
-            color: $textGrey;
-            font-size: 15px;
-            line-height: 24px;
-            max-width: 984px;
-            width: 100%;
-        }
     }
     .aboutElements{
         @include FlexRow;
@@ -194,7 +194,7 @@ header{
                 align-items: center;
                 width:inherit;
                 height: inherit;
-                background:linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.90) 100%), rgba(252, 227, 138, 0.05);
+                background-image: $myGradient;
                 .teamIco{
                     @include Background;
                     background-image: url(../ico/team.svg);
@@ -345,16 +345,6 @@ header{
     width: 100%;
     max-width: 1922px;
     margin: 0 auto;
-    .serviceDesc{
-        font-family:Roboto-Regular;
-        font-weight: normal;
-        font-size: 15px;
-        line-height: 24px;
-        color: $textGrey;
-        max-width: 994px;
-        text-align: center;
-        margin-bottom: 100px;
-    }
     .serviceContent{
         margin: 0 auto;
         @include FlexRow;
@@ -384,5 +374,122 @@ header{
         margin-bottom: 100px;
     }
 
+}
+.memberPhoto{
+    @include Background;
+    background-size: cover;
+    background-position: center;
+}
+
+.MatthewPhoto{
+    background-image: url(../img/member1.jpg);
+    background-position: left;
+}
+.ChristopherPhoto{
+    background-image: url(../img/member2.jpg);
+}
+.MichaelPhoto{
+    background-image: url(../img/member3.jpg);
+}
+.socIco{
+    @include Background;
+    width: 58px;
+    height: 58px;
+    box-sizing: border-box;
+    background-size: 50%;
+}
+.facebook{
+    background-image: url(../ico/facebook.svg);
+    background-size: 25%;
+    &:hover{
+        background-color: $darkOrange;
+        background-image: url(../ico/facebook-hover.svg);
+    }
+}
+.twitter{
+    background-image: url(../ico/twitter.svg);
+    &:hover{
+        background-color: $darkOrange;
+        background-image: url(../ico/twitter-hover.svg);
+    }
+}
+.pinterest{
+    background-image: url(../ico/pinterest.svg);
+    &:hover{
+        background-color: $darkOrange;
+        background-image: url(../ico/pinterest-hover.svg);
+    }
+}
+.instagram{
+    background-image: url(../ico/instagram.svg);
+    &:hover{
+        background-color: $darkOrange;
+        background-image: url(../ico/instagram-hover.svg);
+    }
+}
+
+.teamSection{
+    @include FlexColon;
+    align-items: center;
+    .teamMembers{
+        @include FlexRow;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 116px;
+        max-width: 1220px;
+        width: 100%;
+        .member{
+            @include FlexColon;
+            align-items: center;
+            .memberPhoto{
+                width: 382px;
+                height: 472px;
+                background-color: $elementBlue;
+                margin-bottom: 10px;
+                .memberOverlay{
+                    @include FlexColon;
+                    align-items: center;
+                    opacity: 0;
+                    width: inherit;
+                    height: inherit;
+                    background:$myGradient;
+                    .memberSocial{
+                        @include FlexRow;
+                        justify-content: center;
+                        width: fit-content;
+                        background-color: $mainOrange;
+                    }
+                }
+                &:hover .memberOverlay{
+                    opacity: 1;
+                    transition-duration: 0.5s;
+                }
+                &:hover {
+                    box-shadow: 10px 10px $elementBlue;
+                }
+            }
+       
+          
+        }
+        h3{
+            font-family: Montserrat-normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-family:Roboto-Italic;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 24px;
+            color: $textGrey;
+        }
+    }
+    .teamAwards{
+        width: 100%;
+        background-color: $liteShade;
+        height: 252px;
+    }
 }
     
