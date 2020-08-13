@@ -3,54 +3,55 @@
   src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
 }
 @font-face {
-    font-family: Montserrat-normal;
-    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
-  }
-@font-face {
-font-family: Kaushan-Script;
-src: url(../fonts/Kaushan_Script/KaushanScript-Regular.ttf);
+  font-family: Montserrat-normal;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face {
-    font-family:Roboto-Regular;
-    src :url(../fonts/Roboto/Roboto-Regular.ttf);
+  font-family: Kaushan-Script;
+  src: url(../fonts/Kaushan_Script/KaushanScript-Regular.ttf);
 }
 @font-face {
-    font-family:Roboto-Italic;
-    src :url(../fonts/Roboto/Roboto-Italic.ttf);
+  font-family: Roboto-Regular;
+  src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: Roboto-Italic;
+  src: url(../fonts/Roboto/Roboto-Italic.ttf);
 }
 
-$mainOrange:#FCE38A;
-$mainBlack:#333333;
-$darkOrange:#F38181;
-$textGrey:#999999;
-$elementBlue:#95E1D3;
-$liteShade:#F8F8F8;
-$myGradient:linear-gradient( #f38181e6,#fce38ae6 );
+$mainOrange: #fce38a;
+$mainBlack: #333333;
+$darkOrange: #f38181;
+$textGrey: #999999;
+$elementBlue: #95e1d3;
+$liteShade: #f8f8f8;
+$myGradient: linear-gradient(#f38181e6, #fce38ae6);
+$screenWith: 1200px;
 
 @mixin textFont {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
 }
 @mixin KaushanFont {
-    font-family: Kaushan-Script;
-    font-style: normal;
-    font-weight: normal;
+  font-family: Kaushan-Script;
+  font-style: normal;
+  font-weight: normal;
 }
 @mixin FlexRow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 @mixin FlexColon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @mixin Background {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
