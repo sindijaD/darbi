@@ -525,6 +525,7 @@ header {
         width: 100%;
         height: 100%;
         background: $myGradient;
+        text-align: center;
         .galleryIcon {
           background-image: url(../ico/galleryPhoto.svg);
           background-size: cover;
@@ -592,4 +593,257 @@ header {
       "grid5 grid6 grid3 grid7";
     grid-gap: 1px;
   }
+}
+
+.feedbackCarousel {
+  @include FlexRow;
+  justify-content: center;
+  margin-bottom: 100px;
+  button {
+    @include Background;
+    background-color: transparent;
+    height: 24px;
+    width: 15px;
+    border: none;
+    &:focus {
+      outline: none;
+      transform: scale(1.2);
+      transition-duration: 0.2s;
+    }
+  }
+  .leftBtn {
+    background-image: url(../ico/leftBtn.svg);
+  }
+  .rightBtn {
+    background-image: url(../ico/rightBtn.svg);
+  }
+  .feedbackContainer {
+    margin: 0 42px 0 42px;
+    @include FlexRow;
+    max-width: 1000px;
+    .avatarCircle {
+      @include Background;
+      background-size: cover;
+      min-width: 212px;
+      height: 100%;
+      height: 212px;
+      background-image: url(../img/avatarCircle.jpg);
+      border-radius: 50%;
+    }
+    .feedbackText {
+      margin-left: 30px;
+      .feedback {
+        font-family: Roboto-Italic;
+        text-align: left;
+        padding-bottom: 10px;
+        max-width: 797px;
+        width: 100%;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 36px;
+        color: $textGrey;
+      }
+      .headerDesc {
+        @include FlexRow;
+        .decorLine {
+          align-self: flex-end;
+          margin-left: 9px;
+          margin-bottom: 7px;
+          margin-right: 9px;
+        }
+      }
+    }
+  }
+}
+.happyClients {
+  @include Background;
+  background-image: url(../img/happyClients.jpg);
+  background-size: cover;
+  .whiteOverlay {
+    padding-top: 100px;
+    @include FlexColon;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    align-items: center;
+    .bestClient {
+      @include FlexRow;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: fit-content;
+      padding-top: 80px;
+      .client {
+        @include FlexRow;
+        align-items: flex-start;
+        margin-bottom: 70px;
+        .clientAvatar {
+          @include Background;
+          background-color: $textGrey;
+          min-width: 100px;
+          height: 100px;
+          border-radius: 50%;
+        }
+        .clientDetails {
+          max-width: 374px;
+          width: fit-content;
+          margin-left: 30px;
+          * {
+            margin-bottom: 10px;
+          }
+          .clientName {
+            font-family: Montserrat-normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            color: $mainBlack;
+          }
+          .clientJobTitle {
+            font-family: Montserrat-normal;
+            font-size: 15px;
+            line-height: 24px;
+            color: $mainBlack;
+          }
+          .decor {
+            width: 62px;
+            height: 5px;
+            background-color: $darkOrange;
+          }
+          .clientFeedback {
+            font-family: Roboto-Regular;
+            font-size: 15px;
+            line-height: 24px;
+            color: $textGrey;
+          }
+        }
+      }
+    }
+  }
+}
+.blogSection {
+  padding-top: 100px;
+  @include FlexColon;
+  align-items: center;
+  padding-bottom: 100px;
+}
+.blogList {
+  @include FlexRow;
+  flex-wrap: wrap;
+  align-items: center;
+  .blog {
+    @include FlexColon;
+    align-items: flex-start;
+    max-width: 380px;
+    width: 100%;
+    margin: 0 15px;
+    .blogPhoto {
+      @include Background;
+      background-color: $textGrey;
+      width: 380px;
+      height: 241px;
+      margin-bottom: 10px;
+      .blogDateContainer {
+        position: relative;
+        bottom: -160px;
+        left: -10px;
+        @include FlexColon;
+        align-items: center;
+        background-color: $elementBlue;
+        width: 62px;
+        height: 72px;
+        .blogDate {
+          font-family: Montserrat-Bold;
+          font-size: 30px;
+          line-height: 37px;
+          color: #fff;
+        }
+        .blogMonth {
+          font-family: Roboto-Italic;
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 18px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .blogHeader {
+    font-family: Montserrat-normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: $mainBlack;
+    margin-bottom: 10px;
+  }
+  .blogPreview {
+    font-family: Roboto-Regular;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: $textGrey;
+    margin-bottom: 10px;
+  }
+  .greyDecorLine {
+    background-color: #e5e5e5;
+    height: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.thisBlogStatistics {
+  @include FlexRow;
+}
+.analyticIcons {
+  @include Background;
+  background-size: contain;
+  width: 22px;
+  height: 22px;
+  margin-right: 6px;
+}
+.viewIcon {
+  background-image: url(../ico/ViewIcon.svg);
+}
+.commentIcon {
+  background-image: url(../ico/commentCountIcon.svg);
+}
+.viewCount {
+  margin-right: 20px;
+}
+.viewCount,
+.commentCount {
+  font-family: Roboto-Italic;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  color: $textGrey;
+}
+.map {
+  @include Background;
+  background-image: url(../img/map.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 208px;
+  margin: 0 auto 75px auto;
+  .overlay {
+    @include FlexColon;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(255, 255, 255, 0.85);
+    p {
+      font-family: Montserrat-Bold;
+      font-size: 24px;
+      line-height: 29px;
+      color: $darkOrange;
+      margin-bottom: 20px;
+    }
+  }
+}
+.targetIcon {
+  @include Background;
+  width: 22px;
+  height: 28px;
+  background-image: url(../ico/mapTarget.svg);
+  margin-bottom: 6px;
 }
