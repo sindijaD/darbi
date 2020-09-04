@@ -9,9 +9,7 @@
 /coverage
 
 # production
-/public
-/src
-
+/build
 pacgage.json
 pacgage-lock.json
 

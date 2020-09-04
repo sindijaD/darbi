@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"main.scss"
+	],
+	"sourcesContent": [
+		"@import \"restart.css\";\n@import \"Fonts.css\";\n@import \"elements.css\";\n"
+	],
+	"names": [],
+	"mappings": "AAAA,OAAO,CAAP,gBAAO,CACP,OAAO,CAAP,cAAO,CACP,OAAO,CAAP,iBAAO"
+}

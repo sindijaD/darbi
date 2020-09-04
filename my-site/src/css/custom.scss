@@ -1,0 +1,58 @@
+$color1: #001d3f;
+$color2: #748ba5;
+$color3: #215d96;
+$color4: #ececec;
+$color5: #e7d000;
+
+$tablet-width: 768px;
+$desktop-width: 1200px;
+$small-with: 420px;
+
+@font-face {
+  font-family: "Orbitron-Regular";
+  src: url(../assets/Orbitron/static/Orbitron-Regular.ttf);
+}
+@font-face {
+  font-family: "Orbitron-Black";
+  src: url(../assets/Orbitron/static/Orbitron-Black.ttf);
+}
+
+@mixin centeringContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*media queries*/
+@mixin tabletView {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+@mixin desktopView {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@mixin small-with {
+  @media (max-width: #{$small-with}) {
+    @content;
+  }
+}

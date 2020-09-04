@@ -1,0 +1,27 @@
+@import "../css/custom.scss";
+
+.skill_Container {
+  @include flexRow;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  .skill__Element {
+    @include flexCol;
+    justify-content: center;
+    max-width: 80px;
+    height: 80px;
+    width: 100%;
+    padding: 5px;
+    p {
+      text-align: center;
+      font-family: Orbitron-Regular;
+      margin: 0;
+      font-size: 12px;
+    }
+    svg {
+      margin: auto;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
