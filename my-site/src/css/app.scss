@@ -7,17 +7,29 @@
   }
 }
 
+.containerHide {
+  transform: translateX(-260px);
+}
+.containerShow {
+  transform: unset;
+}
+
 .aside__Container {
   @include flexCol;
   align-items: center;
   width: fit-content;
+  min-height: 730px;
+  height: 100vh;
   box-sizing: border-box;
   background-color: $color1;
-  height: 100vh;
   padding: 30px 20px 20px;
   position: fixed;
   top: 0;
   left: 0;
+  transition: 1s;
+  @media (max-height: 730px) {
+    background-color: red;
+  }
   @include desktopView() {
   }
   .aside__hide__btn {
@@ -33,7 +45,6 @@
     @include desktopView() {
       display: none;
     }
-
     &:hover svg {
       color: $color4;
     }

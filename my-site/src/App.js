@@ -5,40 +5,30 @@ import Contacts from "./components/Contacts";
 import AboutMe from "./components/AboutMe";
 import Portfolio from "./components/Portfolio";
 import Code from "./components/Code";
-import Gallery from "./components/Galery";
+import Gallery from "./components/Gallery";
 import { BsChevronDoubleLeft } from "react-icons/bs";
-
-const hideSidebar = () => {
-  const aside = document.querySelector(".aside__Container");
-  const btnSvg = document.querySelector(".aside__hide__btn svg");
-  if (aside.style.transform === "") {
-    aside.style.transform = "translateX(-260px)";
-    aside.style.transition = "1s";
-    btnSvg.style.transform = "rotate(180deg)";
-    if (window.screen.width < 1200) aside.style.position = "fixed";
-  } else {
-    aside.style.transform = "";
-    btnSvg.style.transform = "";
-    aside.style.transition = "1s";
-    if (window.screen.width < 1200) aside.style.position = "";
-  }
-};
-
-// const container = document.querySelector(".aside__Container");
-// document.addEventListener("click", () => {
-//   const aside = document.querySelector(".aside__Container");
-//   if (window.screen.width < 1200) aside.style.position = "";
-// });
 
 const App = () => {
   const [ResourceType, setResourceType] = useState(AboutMe);
   useEffect(() => {}, [ResourceType]);
+  let [status, setStatus] = useState(`containerShow`);
+  let [BtnStyle, setBtnStyle] = useState("");
+
+  const hideSidebar = () => {
+    if (status === `containerShow`) {
+      setStatus((status = `containerHide`));
+      setBtnStyle((BtnStyle = { transform: "rotate(180deg)" }));
+    } else {
+      setStatus((status = `containerShow`));
+      setBtnStyle((BtnStyle = { transform: "rotate(0deg)" }));
+    }
+  };
 
   return (
     <>
-      <aside className="aside__Container">
+      <aside className={`aside__Container ${status}`}>
         <button className="aside__hide__btn" onClick={hideSidebar}>
-          <BsChevronDoubleLeft />
+          <BsChevronDoubleLeft style={BtnStyle} />
         </button>
         <div className="aside__Avatar"></div>
         <h1>AUSTRIS DAUGULIS</h1>

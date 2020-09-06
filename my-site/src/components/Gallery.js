@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/Galery.scss";
+import "../css/Gallery.scss";
 
-const Galery = () => {
+const Gallery = () => {
   return (
     <>
       <h2>Gallery</h2>
@@ -9,4 +9,4 @@ const Galery = () => {
   );
 };
 
-export default Galery;
+export default Gallery;
