@@ -11,11 +11,16 @@ import { BsChevronDoubleLeft } from "react-icons/bs";
 const App = () => {
   const [ResourceType, setResourceType] = useState(AboutMe);
   useEffect(() => {}, [ResourceType]);
+
+  let [Active, setActive] = useState("inActive");
+  let change = () => {
+    setActive((Active = "Active"));
+  };
+
   let [status, setStatus] = useState(`containerShow`);
   let [BtnStyle, setBtnStyle] = useState("");
-
   const hideSidebar = () => {
-    if (status === `containerShow`) {
+    if (status === `containerShow` && window.innerWidth <= 1200) {
       setStatus((status = `containerHide`));
       setBtnStyle((BtnStyle = { transform: "rotate(180deg)" }));
     } else {
@@ -44,12 +49,58 @@ const App = () => {
           />
         </svg>
         <nav>
-          <button onClick={() => setResourceType(AboutMe)}>ABOUT ME</button>
-          <button onClick={() => setResourceType(<Skills />)}>SKILLS</button>
-          <button onClick={() => setResourceType(Portfolio)}>PORTFOLIO</button>
-          <button onClick={() => setResourceType(Gallery)}>GALLERY</button>
-          <button onClick={() => setResourceType(Code)}>CODE CHALLENGES</button>
-          <button onClick={() => setResourceType(Contacts)}>CONTACTS</button>
+          <button
+            className={Active}
+            onClick={() => {
+              setResourceType(AboutMe);
+              setActive((Active = "Active"));
+              hideSidebar();
+            }}
+          >
+            ABOUT ME
+          </button>
+          <button
+            className={Active}
+            onClick={() => {
+              setResourceType(<Skills />);
+              setActive((Active = "Active"));
+              hideSidebar();
+            }}
+          >
+            SKILLS
+          </button>
+          <button
+            onClick={() => {
+              setResourceType(Portfolio);
+              hideSidebar();
+            }}
+          >
+            PORTFOLIO
+          </button>
+          <button
+            onClick={() => {
+              setResourceType(Gallery);
+              hideSidebar();
+            }}
+          >
+            GALLERY
+          </button>
+          <button
+            onClick={() => {
+              setResourceType(Code);
+              hideSidebar();
+            }}
+          >
+            CODE CHALLENGES
+          </button>
+          <button
+            onClick={() => {
+              setResourceType(Contacts);
+              hideSidebar();
+            }}
+          >
+            CONTACTS
+          </button>
         </nav>
         <footer>
           Made by Austris Daugulis

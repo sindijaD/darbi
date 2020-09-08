@@ -14,10 +14,11 @@ const Portfolio__element = (siteHeading, link, className, icons, desc) => {
     <div className="Portfolio__element">
       <h3>{siteHeading}</h3>
       <a href={link}>
-        <div className={`Portfolio__preview ` + className}></div>
+        <div className={`Portfolio__preview ` + className}>
+          <ul className="Portfolio__tech"> {icons}</ul>
+        </div>
       </a>
       <p className="Portfolio__description">{desc}</p>
-      <ul className="Portfolio__tech"> {icons}</ul>
     </div>
   );
 };

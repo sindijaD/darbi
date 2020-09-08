@@ -9,6 +9,9 @@
 
 .containerHide {
   transform: translateX(-260px);
+  @include desktopView() {
+    transform: translateX(0);
+  }
 }
 .containerShow {
   transform: unset;
@@ -30,8 +33,7 @@
   @media (max-height: 730px) {
     background-color: red;
   }
-  @include desktopView() {
-  }
+
   .aside__hide__btn {
     color: $color2;
     background-color: $color1;
@@ -89,6 +91,9 @@
       &:focus {
         outline: none;
       }
+    }
+    .Active {
+      border-left-color: $color4;
     }
   }
   footer {
